@@ -4,7 +4,7 @@
   "devDependencies": {},
   "scripts": {
     "installAll": "lerna bootstrap --hoist",
-    "start": "lerna run --stream --scope front start",
+    "start": "lerna run --parallel --stream --scope front start",
     "build": "lerna run --stream --scope front build"
   },
   "dependencies": {
