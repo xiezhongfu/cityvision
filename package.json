@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {},
+  "scripts": {
+    "installAll": "lerna bootstrap --hoist",
+    "start": "lerna run --stream --scope front start",
+    "build": "lerna run --stream --scope front build"
+  },
+  "dependencies": {
+    "lerna": "^3.21.0"
+  }
+}
