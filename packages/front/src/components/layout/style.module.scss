@@ -1,0 +1,19 @@
+$full-height: $screen-height;
+
+.layout{
+  display: grid;
+  min-height: $full-height;
+  max-height: $full-height;
+  grid-auto-rows: minmax($full-height, $full-height);
+  grid-template-columns: 391.5px * $multiple 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+.sider{
+  background-color: $block-black;
+  @include box-shadow;
+}
+.content{
+  min-height: $full-height;
+  max-height: $full-height;
+}

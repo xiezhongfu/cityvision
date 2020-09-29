@@ -1,0 +1,25 @@
+/** 倍率问题*/
+/** 参见: http://jira.tsingj.local/browse/SLTDLV-448 中的第一条注释*/
+$multiple: 3 * 1680 / 11520;/** 临时 hack 到本机的大小*/
+
+/** 模拟大屏环境*/
+// $screen-width: 11520px;
+// $screen-height: 3240px;
+/** 临时 hack 到本机的大小*/
+$screen-width: 100vw;
+$screen-height: 100vh;
+
+/** 背景颜色*/
+$background-black: #161A38;
+$block-black: #1C2244;
+
+/** 字体颜色 */
+$main-color: #48ECC0;
+$secondary-color: #FFFFFF;
+$text-color: #DEE3FF;
+
+/** mixin */
+@mixin box-shadow { 
+  box-shadow: 0px 0px 145px * $multiple 0px rgba(17, 22, 47, 0.25);
+  border-radius: 15px;
+}

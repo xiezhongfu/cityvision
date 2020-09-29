@@ -1,0 +1,25 @@
+.simpele-nav{
+  li{
+    a{
+      display:block;
+      text-align: center;
+      color: $text-color;
+      font-size: 34.38px * $multiple;
+      line-height: 243px * $multiple;
+      position: relative;
+    }
+  }
+  .selected{
+    &:after{
+      content:'';
+      width: 26.3px * $multiple;
+      height: 100%;
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      background-color: $main-color;
+    }
+  }
+}
