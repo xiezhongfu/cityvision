@@ -1,14 +1,16 @@
-/** 倍率问题*/
-/** 参见: http://jira.tsingj.local/browse/SLTDLV-448 中的第一条注释*/
-$dpr: 3/2;// 也有可能是2，实地部署的时候需要测试
-$multiple: 1 * 2 / $dpr;// * 1680 / 11520;/** 临时 hack 到本机的大小*/
+/** 参见: http://jira.tsingj.local/browse/SLTDLV-448 中的注释*/
 
-/** 模拟大屏环境*/
-$screen-width: 11520px;
-$screen-height: 3240px;
-// /** 临时 hack 到本机的大小*/
-// $screen-width: 100vw;
-// $screen-height: 100vh;
+// 这里的作用是方便在开发环境调试
+$local-hack-width-raido: 100vw / 11520px;
+$local-hack-height-raido: 100vh / 3240px;
+
+$dpr: 3/2; //也有可能是2，实地部署的时候需要测试
+$multiple: 1 * 2 * $dpr * $local-hack-width-raido;
+/** 模拟真实的大屏环境*/
+$screen-width: 11520px * $local-hack-width-raido;
+$screen-height: 3240px * $local-hack-height-raido;
+
+
 
 /** 背景颜色*/
 $background-black: #161A38;
@@ -23,4 +25,4 @@ $text-color: #DEE3FF;
 @mixin box-shadow { 
   box-shadow: 0px 0px 145px * $multiple 0px rgba(17, 22, 47, 0.25);
   border-radius: 15px;
-}
+}  
