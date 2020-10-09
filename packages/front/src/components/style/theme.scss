@@ -1,13 +1,14 @@
 /** 倍率问题*/
 /** 参见: http://jira.tsingj.local/browse/SLTDLV-448 中的第一条注释*/
-$multiple: 3 * 1680 / 11520;/** 临时 hack 到本机的大小*/
+$dpr: 3/2;// 也有可能是2，实地部署的时候需要测试
+$multiple: 1 * 2 / $dpr;// * 1680 / 11520;/** 临时 hack 到本机的大小*/
 
 /** 模拟大屏环境*/
-// $screen-width: 11520px;
-// $screen-height: 3240px;
-/** 临时 hack 到本机的大小*/
-$screen-width: 100vw;
-$screen-height: 100vh;
+$screen-width: 11520px;
+$screen-height: 3240px;
+// /** 临时 hack 到本机的大小*/
+// $screen-width: 100vw;
+// $screen-height: 100vh;
 
 /** 背景颜色*/
 $background-black: #161A38;
