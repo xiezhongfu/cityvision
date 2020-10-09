@@ -1,7 +1,11 @@
 import React from 'react';
+import TrafficPie from './traffic-pie/';
 
 export default class TrafficIndex extends React.PureComponent {
   render() {
-    return (<div>人流交通指数</div>)
+    return (
+      <div>
+        <TrafficPie />
+      </div>)
   }
 }

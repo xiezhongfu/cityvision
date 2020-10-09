@@ -1,0 +1,35 @@
+.container{
+  @include box-container(1221px, 671.3px);
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  padding: 70px * $multiple 50px * $multiple 0;
+
+  & > *{
+    flex: 1 1 162.5px * $multiple;// !!! 这是环状图的高度，同 ReactEcharts 的高度限制一致
+    &:nth-child(1){
+      flex-basis: 0;
+      margin: 0;
+    }
+  }
+
+  .title{
+    text-align: center;
+    font-size: 38px * $multiple;
+    color: $title-color;
+  }
+
+  .today, .lastweek-period{
+    display: flex;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    & > *{
+      flex: 1 1 calc(100% / 3);
+      &:nth-child(1){
+        flex-basis: 150px * $multiple;
+      }
+    }
+  }
+}

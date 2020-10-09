@@ -1,11 +1,11 @@
 /** 参见: http://jira.tsingj.local/browse/SLTDLV-448 中的注释*/
 
-// 这里的作用是方便在开发环境调试
+// 用于开发
+// 生产的时候设置为 1
 $local-hack-width-raido: 100vw / 11520px;
 $local-hack-height-raido: 100vh / 3240px;
 
-$dpr: 3/2; //也有可能是2，实地部署的时候需要测试
-$multiple: 1 * 2 * $dpr * $local-hack-width-raido;
+$multiple: 1 * 2 * $local-hack-width-raido;
 /** 模拟真实的大屏环境*/
 $screen-width: 11520px * $local-hack-width-raido;
 $screen-height: 3240px * $local-hack-height-raido;
@@ -15,14 +15,23 @@ $screen-height: 3240px * $local-hack-height-raido;
 /** 背景颜色*/
 $background-black: #161A38;
 $block-black: #1C2244;
+$box-black: #1B2143;
 
 /** 字体颜色 */
 $main-color: #48ECC0;
 $secondary-color: #FFFFFF;
 $text-color: #DEE3FF;
+$title-color: #FEFEFF;
 
 /** mixin */
 @mixin box-shadow { 
   box-shadow: 0px 0px 145px * $multiple 0px rgba(17, 22, 47, 0.25);
-  border-radius: 15px;
-}  
+  border-radius: 15px * $multiple;
+}
+@mixin box-container($width, $height) { 
+  width:$width * $multiple;
+  height: $height * $multiple;
+  background-color: $box-black;
+  box-shadow: 0px 0px 145px * $multiple 0px rgba(17, 21, 47, 0.25);
+  border-radius: 15px * $multiple;
+}
