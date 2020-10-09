@@ -35,3 +35,7 @@ $title-color: #FEFEFF;
   box-shadow: 0px 0px 145px * $multiple 0px rgba(17, 21, 47, 0.25);
   border-radius: 15px * $multiple;
 }
+
+*{
+  box-sizing: border-box;
+}
