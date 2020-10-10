@@ -1,5 +1,5 @@
 .container{
-  @include box-container(1221px, 671.3px);
+  @include box-container(671.3px);
   display: flex;
   flex-direction: column;
   justify-content: stretch;

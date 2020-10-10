@@ -1,0 +1,57 @@
+.container{
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  & > .map {
+    flex: 1 1 auto;
+  }
+  & > .title {
+    flex: 0 0 (38px+60px+60px) * $multiple;;
+  }
+  .title{
+    text-align: center;
+    font-size: 38px * $multiple;
+    color: #FEFEFF;
+  }
+  .legend{
+    position: absolute;
+    z-index: 1;
+    bottom: 100px * $multiple;
+    right: 0;
+    font-size: 24px * $multiple;
+
+    li{
+      line-height: 54px * $multiple;
+      &::before{
+        content:'';
+        display: inline-block;
+        width: 35.7px * $multiple;
+        height: 35.7px * $multiple;
+        border-radius: 8px * $multiple;
+        margin-right: 24px * $multiple;
+      }
+      &:nth-child(1){
+        &::before{
+          background-color: #FF3B67;
+        }
+      }
+      &:nth-child(2){
+        &::before{
+          background-color: #F7FFFF;
+        }
+      }
+      &:nth-child(3){
+        &::before{
+          background-color: #22E49D;
+        }
+      }
+      &:nth-child(4){
+        &::before{
+          background-color: #662EAB;
+        }
+      }
+    }
+  }
+}

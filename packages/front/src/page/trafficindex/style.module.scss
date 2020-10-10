@@ -1,0 +1,14 @@
+.left-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  width: 1221px * $multiple;
+  height: $screen-height;
+  float: left;
+}
+.middle-container{
+  width: 2293px * $multiple;
+  height: $screen-height;
+  float: left;
+}
