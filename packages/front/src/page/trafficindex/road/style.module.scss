@@ -5,5 +5,114 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .echarts-for-react-wrap {
+      @include box-shadow;
+      padding: 27.5px * $multiple 75px * $multiple (100px + 27.5px) * $multiple;
+      position: relative;
+
+      .legend{
+        color: #FFFFFF;
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        bottom: 27.5px * $multiple;
+      }
+      .degree{
+        display: flex;
+        justify-content: space-between;
+        li:not(:last-child){
+          margin-right: 25px * $multiple;
+        }
+        li:before{
+          content:'';
+          display: inline-block;
+          margin-right: 10px * $multiple;
+          width: 8px * $multiple;
+          height: 8px * $multiple;
+          vertical-align: middle;
+          transform: rotate(45deg);
+        }
+        li:nth-child(1){
+          &:before{
+            background-color:#22E49D;
+          }
+        }
+        li:nth-child(2){
+          &:before{
+            background-color:#663DAD;
+          }
+        }
+        li:nth-child(3){
+          &:before{
+            background-color:#FCCC28;
+          }
+        }
+        li:nth-child(4){
+          &:before{
+            background-color:#CA45BC;
+          }
+        }
+        li:nth-child(5){
+          &:before{
+            background-color:#FF3E5F;
+          }
+        }
+      }
+      .tip{
+        display: flex;
+        justify-content: space-between;
+
+        @mixin background($url){
+          background:url($url) no-repeat center center;
+          background-size: 100%;
+        }
+
+        li:not(:last-child){
+          margin-right: 25px * $multiple;
+        }
+        li:not(:first-child):before{
+          content:'';
+          display: inline-block;
+          margin-right: 10px * $multiple;
+          width: 41px * $multiple;
+          height: 41px * $multiple;
+          vertical-align: middle;
+          top: -1px * $multiple;
+          position: relative;
+        }
+
+        li:nth-child(2){
+          &:before{
+            @include background('./img/government.svg');
+          }
+        }
+        li:nth-child(3){
+          &:before{
+            @include background('./img/school.svg');
+          }
+        }
+        li:nth-child(4){
+          &:before{
+            @include background('./img/hispital.svg');
+          }
+        }
+        li:nth-child(5){
+          &:before{
+            @include background('./img/station.svg');
+          }
+        }
+        li:nth-child(6){
+          &:before{
+            @include background('./img/market.svg');
+          }
+        }
+        li:nth-child(7){
+          &:before{
+            @include background('./img/scenic.svg');
+          }
+        }
+      }
+    }
   }
 }
