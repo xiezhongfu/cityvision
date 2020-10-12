@@ -6,7 +6,7 @@
  * https://www.npmjs.com/package/echarts-for-react
  *
  * 使用方式二：
- * http://echarts.baidu.com/api.html#echarts.init
+ * https://echarts.apache.org/zh/api.html#echarts.registerTheme
  *
  */
 
