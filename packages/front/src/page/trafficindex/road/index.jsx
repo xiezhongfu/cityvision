@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactEcharts from '../../../components/enhance-echarts-for-react/';
+import getLevel/* , { getSafeRandom } */ from './random';
 
 import GovernmentSrc from './img/government.svg';
 import SchoolSrc from './img/school.svg';
@@ -10,8 +11,6 @@ import ScenicSrc from './img/scenic.svg';
 
 import Style from './style.module.scss';
 
-const stackIntoGroup = '_stack-into-group_';
-
 /**
  * 实现思路
  * 1: 正常堆叠图
@@ -21,9 +20,21 @@ const stackIntoGroup = '_stack-into-group_';
  * 
  * 交通指数 eg:
  * 1: 昨天 17 点 ----> 今天 17 点 ----> 明天 17 点
- * 2: 最小刻度是 4 个小时(为了简化，假设在业务上，每4个小时为最小单位计算一次交通指数)
+ * 2: 最小刻度是 4 个小时(为了简化，假设在业务上，每4个小时为最小单位计算一次交通指数)，整数刻度范围是: [0, 48/4)
  * 3: 根据交通指数的等级，自定义每一个柱条的颜色(不从全局色盘获取)
+ * 
  */
+const STACK_INTO_GROUP = '_stack-into-group_';
+const ROADS_MOCK = ['淮海路（洪山路口）', '惠黎路（建安路口）', '高山中（人民中路口）', '淮海中路（房星巷口）', '惠黎路（XX路口）', '高山中（XX路口）', '淮海中路（XX巷口）'];
+const MIN_INTERRVAL = 4;
+const MAX_VALUE = 48;
+const RANGE_LENGTH = MAX_VALUE / MIN_INTERRVAL;
+const TIME_RANGE = {
+  0: '昨日 15 时',
+  [RANGE_LENGTH]: '明日 15 时',
+  [RANGE_LENGTH >> 1]: '今日 15 时',
+};
+
 export default class TrafficIndex extends React.PureComponent {
   render() {
     return (
@@ -35,40 +46,50 @@ export default class TrafficIndex extends React.PureComponent {
               option={{
                 title: {
                   text: "指数变化",
-                  subtext: "昨日 15 时 ---> 今日 15 时 ---> 明日 15 时",
                   left: "center",
                   top: "top",
                   textStyle: {
                     color: '#fff',
+                    fontSize: 18
                   },
-                  subtextStyle: {
-                    color: '#F7F1FF',
-                  }
-                },
-                tooltip: {
-                  trigger: 'axis',
-                  axisPointer: {
-                    type: 'shadow'
-                  }
                 },
                 grid: {
-                  top: 37,
-                  left: 37,// 同 Y 轴的 offset
-                  right: 41 * 2,// ??
+                  top: 75,
+                  right: 41,
                   bottom: 0,
                 },
                 xAxis: [
                   {
                     type: 'value',
+                    position: 'top',
                     splitLine: {
                       show: false
-                    }
+                    },
+                    nameTextStyle: {
+                      color: '#F7F1FF',
+                      align: 'right',
+                    },
+                    axisLine: {
+                      show: false,
+                    },
+                    axisLabel: {
+                      show: true,
+                      color: '#fff',
+                      showMinLabel: true,
+                      showMaxLabel: true,
+                      formatter: function (value, index) {
+                        return TIME_RANGE[index];
+                      }
+                    },
+                    max: MAX_VALUE,
+                    interval: MIN_INTERRVAL,
+                    offset: 10
                   }
                 ],
                 yAxis: [
                   {
                     type: 'category',
-                    data: ['淮海路（洪山路口）', '惠黎路（建安路口）', '高山中（人民中路口）', '淮海中路（房星巷口）', '惠黎路（XX路口）', '高山中（XX路口）', '淮海中路（XX巷口）'],
+                    data: ROADS_MOCK,
                     axisTick: {
                       show: false
                     },
@@ -92,23 +113,26 @@ export default class TrafficIndex extends React.PureComponent {
                         }
                       }
                     },
-                    offset: 37,
                     name: '路段名称',
+                    nameGap: 50,
                     nameTextStyle: {
                       color: '#fff',
                       align: 'right',
-                    }
+                      fontSize: 18
+                    },
                   },
                   {
                     type: 'category',
-                    data: (new Array(7)).fill(1),// 这里的数组个数同第一个 Y 轴的个数相等，用于给第一个 Y 轴的每一个刻度定制 icon
+                    data: ROADS_MOCK,
                     axisTick: {
                       show: false
                     },
                     name: '附近',
+                    nameGap: 50,
                     nameTextStyle: {
                       color: '#fff',
                       align: 'left',
+                      fontSize: 18
                     },
                     axisLabel: {
                       color: '#fff',
@@ -202,67 +226,35 @@ export default class TrafficIndex extends React.PureComponent {
                         }
                       }
                     },
-                    offset: 37
                   }
                 ],
-                series: [
-                  {
-                    name: '昨天 17 点',
+                series: (new Array(RANGE_LENGTH)).fill(0).map((current, index, array) => {
+                  return {
+                    name: '某个时刻',
                     type: 'bar',
-                    stack: stackIntoGroup,
-                    data: [
-                      {
-                        value: 4,
-                        itemStyle: {
-                          color: 'rgba(255, 206, 38, 1)',
-                          barBorderRadius: 7,
-                        }
-                      },
-                      {
-                        value: 4,
-                        itemStyle: {
-                          color: 'rgba(34, 228, 157, 1)',
-                          barBorderRadius: 7,
-                        }
-                      },
-                      {
-                        value: 4,
-                        itemStyle: {
-                          color: 'rgba(255, 62, 95, 1)',
-                          barBorderRadius: 7,
-                        }
-                      },
-                      {
-                        value: 4,
-                        itemStyle: {
-                          color: 'rgba(34, 228, 157, 1)',
-                          barBorderRadius: 7,
-                        }
-                      },
-                      {
-                        value: 4,
-                        itemStyle: {
-                          color: 'rgba(102, 54, 172, 1)',
-                          barBorderRadius: 7,
-                        }
-                      },
-                      {
-                        value: 4,
-                        itemStyle: {
-                          color: 'rgba(255, 62, 95, 1)',
-                          barBorderRadius: 7,
-                        }
-                      },
-                      {
-                        value: 4,
-                        itemStyle: {
-                          color: 'rgba(102, 54, 172, 1)',
-                          barBorderRadius: 7,
-                        }
+                    stack: STACK_INTO_GROUP,
+                    // 当前时间下，各个路口的交通指数
+                    data: (new Array(RANGE_LENGTH)).fill(0).map(() => {
+                      let barBorderRadius;
+                      // 首
+                      if (index === 0) {
+                        barBorderRadius = [7, 0, 0, 7];//（顺时针左上，右上，右下，左下）
+                      } else if (index === array.length - 1) {
+                        barBorderRadius = [0, 7, 7, 0];
+                      } else {
+                        barBorderRadius = 0;
                       }
-                    ],
-                  },
-                ]
+
+                      return {
+                        value: MIN_INTERRVAL,// value 可以设置成任何数值。这里使用的4代表了：假设每4个小时为最小单位计算一次交通指数
+                        itemStyle: {
+                          color: getLevel(),// 用随机的颜色表达了交通指数
+                          barBorderRadius,
+                        }
+                      };
+                    })
+                  };
+                })
               }}
             />
             <div className={Style['legend']}>

@@ -9,12 +9,26 @@ import Style from './style.module.scss';
 // 环形图
 // superOption 的结构和 option 的结构一致，方便透传数据
 class Ring extends React.PureComponent {
+  ref = React.createRef()
+
+  componentDidMount() {
+    const { current: echarts_react } = this.ref;
+    const echarts_instance = echarts_react.getEchartsInstance();
+    // 因为要使用高亮不能在配置项开启 silent
+    // 使用 css 属性 pointer-events 禁用了 echarts 图层的鼠标事件
+    // 使用 api 始终高亮第一个
+    echarts_instance.dispatchAction({
+      type: 'highlight',
+      dataIndex: 0,
+    });
+  }
   render() {
     const { option: superOption } = this.props;
 
     return (
       <ReactEcharts
-        style={{ height: `${window.$parseMultiple(162.5)}` }}
+        ref={this.ref}
+        style={{ height: `${window.$parseMultiple(162.5)}`, pointerEvents: 'none'}}
         option={{
           title: {
             ...superOption.title,
@@ -27,19 +41,22 @@ class Ring extends React.PureComponent {
           },
           series: superOption.series.map((current, index, array) => {
             return {
+              cursor: 'default',
               type: 'pie',
               radius: ['50%', '70%'],
-              avoidLabelOverlap: false,
+              clockwise: false,
+              // silent: true,
+              hoverOffset: 2,
               label: {
                 show: true,
-                position: 'center'
+                position: 'center',
               },
               emphasis: {
                 label: {
                   show: true,
                   fontSize: `${window.$parseMultiple(50)}`,
                   color: '#fff'
-                }
+                },
               },
               labelLine: {
                 show: false
@@ -77,14 +94,14 @@ export default class TrafficPie extends React.PureComponent {
               title: { text: '晚高峰' },
               series: [{
                 data: [
-                  { value: 4.6, name: '4.6' },
+                  { value: 4.6, name: '4.6', },
                   { value: 5.4, name: '5.4' },
                 ]
               }],
             }}
           />
         </div>
-        
+
         <div className={Style['lastweek-period']}>
           <div>上周同期</div>
           <Ring

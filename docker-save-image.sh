@@ -1,0 +1,1 @@
+docker save --output="tsingj_nanda.tar" tsingj:nanda

@@ -24,9 +24,6 @@ export default class TrafficLine extends React.PureComponent {
               trigger: 'axis',
               axisPointer: {
                 type: 'cross',
-                label: {
-                  backgroundColor: '#6a7985'
-                }
               }
             },
             grid: {
@@ -84,7 +81,6 @@ export default class TrafficLine extends React.PureComponent {
                     }, {
                       offset: 1, color: '#160E23' // 100% 处的颜色
                     }],
-                    global: false // 缺省为 false
                   }
                 },
                 data: [120, 132, 101, 134, 90, 230, 210, 210, 210, 210, 210, 210]

@@ -10,7 +10,8 @@
     }
   }
   .selected{
-    &:after{
+    background-color: #0E1329;
+    &:before{
       content:'';
       width: 26.3px * $multiple;
       height: 100%;
@@ -18,7 +19,7 @@
       position: absolute;
       z-index: 1;
       top: 0;
-      right: 0;
+      left: 0;
       background-color: $main-color;
     }
   }

@@ -8,10 +8,8 @@ echarts.registerTheme('tsingj-echarts-theme', echartsTheme);
 /**
  * 挂载自定义的皮肤
  */
-export default class ReactEcharts extends React.PureComponent{
-  render(){
-    return (
-      <BaseReactEcharts theme='tsingj-echarts-theme' {...this.props} />
-    )
-  }
-}
+const ReactEcharts = React.forwardRef((props, ref) => (
+  <BaseReactEcharts ref={ref} theme='tsingj-echarts-theme' {...props} />
+));
+
+export default ReactEcharts;
