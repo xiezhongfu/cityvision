@@ -1,0 +1,9 @@
+.container{
+  display: flex;
+  height: $screen-height;
+  align-items: stretch;
+
+  & > *  {
+    flex: 0 0 50%;
+  }
+}

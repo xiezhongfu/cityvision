@@ -1,0 +1,35 @@
+@import "~video-react/styles/scss/video-react";
+
+.video-react.video-react-fluid, .video-react.video-react-16-9, .video-react.video-react-4-3{
+  // height: $screen-height;
+}
+
+.video-react{
+  // background-color: transparent;
+  font-size: 60px * $multiple;
+  .video-react-big-play-button{
+    background-color: rgba(26, 190, 169, 1);
+
+    &.video-react-big-play-button-center{
+      height: 1.5em;
+      width: 1.5em;
+      margin-top: 0;
+      margin-left: 0;
+      transform: translate(-50%, -50%);
+      border: none;
+      border-radius: 50%;
+      &:before{
+        color: rgba(21, 26, 55, 1);
+      }
+    }
+  }
+
+  &:hover .video-react-big-play-button,
+  .video-react-big-play-button:focus {
+    background-color: rgba(26, 190, 169, 0.5);
+  }
+
+  .video-react-bezel {
+    background-color: rgba(26, 190, 169, 1);
+  }
+}

@@ -10,7 +10,7 @@ import SimpeleNav from './components/nav/';
 import TrafficIndex from './page/trafficindex/';
 import DataCollect from './page/datacollect/';
 import EnterpriseLand from './page/enterpriseland/';
-import './App.scss';
+import './App.module.scss';
 /* eslint-disable import/first */
 
 function App() {

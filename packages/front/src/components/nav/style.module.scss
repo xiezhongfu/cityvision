@@ -1,4 +1,5 @@
 .simpele-nav{
+  overflow: auto;
   li{
     a{
       display:block;
@@ -10,7 +11,7 @@
     }
   }
   .selected{
-    background-color: #0E1329;
+    background-image: linear-gradient(to right, #1B605C, #142738);
     &:before{
       content:'';
       width: 26.3px * $multiple;

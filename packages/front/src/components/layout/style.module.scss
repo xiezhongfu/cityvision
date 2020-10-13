@@ -10,8 +10,8 @@ $full-height: $screen-height;
   grid-row-gap: 0;
 }
 .sider{
-  background-color: $block-black;
   @include box-shadow;
+  background-color: $block-black;
 }
 .content{
   min-height: $full-height;
