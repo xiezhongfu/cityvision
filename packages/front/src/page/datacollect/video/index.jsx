@@ -7,19 +7,23 @@ import './style.scss';
 export default class Video extends React.PureComponent {
   render() {
     return (
-      <Player
-        preLoad="auto"
-        // muted
-        // autoPlay
-        playsInline
-        // poster="/assets/poster.png"
-        src="https://www.tsingj.com/static/4595f393c0e05dba.mp4"
-      >
-        <BigPlayButton position="center" />
-        <ControlBar autoHide={false}>
-          <DownloadButton order={7} />
-        </ControlBar>
-      </Player>
+      // 为了布局隔离方便，增加一层冗余的 div 
+      <div>
+        <Player
+          preLoad="auto"
+          // aspectRatio="1:1"
+          // muted
+          // autoPlay
+          playsInline
+          // poster="/assets/poster.png"
+          src="https://www.tsingj.com/static/4595f393c0e05dba.mp4"
+        >
+          <BigPlayButton position="center" />
+          <ControlBar autoHide={false}>
+            <DownloadButton order={7} />
+          </ControlBar>
+        </Player>
+      </div>
     )
   }
 }
