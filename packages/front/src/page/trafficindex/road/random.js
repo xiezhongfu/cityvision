@@ -7,12 +7,26 @@
  * 等级5    拥堵:    [8, 10）      #FF3E5F
  */
 
-// 返回 [0, 1] 的安全随机数
+// 返回 [0, 1) 的安全随机数
 export function getSafeRandom(length) {
-  const array = Uint8Array.from((new Array(length)).fill(0));
+  const array = Uint8ClampedArray.from((new Array(length)).fill(0));
   window.crypto.getRandomValues(array);
   const result = [];
-  array.forEach(current => result.push(current / ((1 << 8) - 1) * 1));
+  array.forEach(current => {
+    result.push(current / (1 << 8) * 1)
+  });
+  return result;
+}
+
+// 返回 (0, 1) 的安全随机数
+// 如果是 0，就假设符合高斯分布选择中位数(0.5)
+export function getSafeGaussianRandom(length) {
+  const array = Uint8ClampedArray.from((new Array(length)).fill(0));
+  window.crypto.getRandomValues(array);
+  const result = [];
+  array.forEach(current => {
+    result.push((current || 0.5) / (1 << 8) * 1)
+  });
   return result;
 }
 

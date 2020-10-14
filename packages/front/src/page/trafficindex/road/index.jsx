@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEcharts from '../../../components/enhance-echarts-for-react/';
-import getLevel/* , { getSafeRandom } */ from './random';
+import getLevel, { getSafeRandom, getSafeGaussianRandom } from './random';
 
 import GovernmentSrc from './img/government.svg';
 import SchoolSrc from './img/school.svg';
@@ -34,6 +34,15 @@ const TIME_RANGE = {
   [RANGE_LENGTH]: '明日 15 时',
   [RANGE_LENGTH >> 1]: '今日 15 时',
 };
+/**
+ * 颜色库
+ */
+// Y 方向需要 ROADS_MOCK.length 组;
+const  COLORS_STORE =  ROADS_MOCK.map(()  => {
+  // X 方向产生 RANGE_LENGTH 个颜色
+  return getSafeRandom(RANGE_LENGTH).map(i => getLevel(i * 10));
+});
+console.log('COLORS_STORE:', COLORS_STORE);
 
 export default class TrafficIndex extends React.PureComponent {
   render() {
@@ -228,27 +237,50 @@ export default class TrafficIndex extends React.PureComponent {
                     },
                   }
                 ],
-                series: (new Array(RANGE_LENGTH)).fill(0).map((current, index, array) => {
+                series: (new Array(RANGE_LENGTH)).fill(0).map((currentTime, indexTime, arrayTime) => {
                   return {
                     name: '某个时刻',
                     type: 'bar',
                     stack: STACK_INTO_GROUP,
                     // 当前时间下，各个路口的交通指数
-                    data: (new Array(RANGE_LENGTH)).fill(0).map(() => {
+                    data: (new Array(ROADS_MOCK.length)).fill(0).map((currentRoad, indexRoad/* , arrayRoad */) => {
+                      let preIndexTime;
+                      let nextIndexTime;
                       let barBorderRadius;
-                      // 首
-                      if (index === 0) {
+
+                      // 第一个时间
+                      if (indexTime === 0) {
+                        preIndexTime = indexTime;
+                        nextIndexTime = indexTime + 1;
                         barBorderRadius = [7, 0, 0, 7];//（顺时针左上，右上，右下，左下）
-                      } else if (index === array.length - 1) {
+                      }
+                      // 最后一个时间
+                      else if (indexTime === arrayTime.length - 1) {
+                        preIndexTime = indexTime;
+                        nextIndexTime = indexTime;
                         barBorderRadius = [0, 7, 7, 0];
                       } else {
+                        preIndexTime = indexTime;
+                        nextIndexTime = indexTime + 1;
                         barBorderRadius = 0;
                       }
 
                       return {
                         value: MIN_INTERRVAL,// value 可以设置成任何数值。这里使用的4代表了：假设每4个小时为最小单位计算一次交通指数
                         itemStyle: {
-                          color: getLevel(),// 用随机的颜色表达了交通指数
+                          // 如果不需要过度效果，直接使用  getLevel() 简单化用随机的颜色表达了交通指数
+                          color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 1,
+                            x2: 1,
+                            y2: 1,
+                            colorStops: [
+                              { offset: 0, color: COLORS_STORE[indexRoad][preIndexTime] },                   // 前一个位置的颜色
+                              { offset: getSafeGaussianRandom(), color: COLORS_STORE[indexRoad][indexTime] },// 当前位置的颜色
+                              { offset: 1, color: COLORS_STORE[indexRoad][nextIndexTime] }                   // 后一个位置的颜色
+                            ],
+                          },
                           barBorderRadius,
                         }
                       };
