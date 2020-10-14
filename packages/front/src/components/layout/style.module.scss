@@ -1,19 +1,16 @@
-$full-height: $screen-height;
-
 .layout{
   display: grid;
-  min-height: $full-height;
-  max-height: $full-height;
-  grid-auto-rows: minmax($full-height, $full-height);
-  grid-template-columns: 391.5px * $multiple 1fr;
+  min-height: $screen-height;
+  max-height: $screen-height;
+  grid-auto-rows: minmax($screen-height, $screen-height);
+  grid-template-columns: 530px * $multiple 1fr;
   grid-column-gap: 0;
   grid-row-gap: 0;
 }
 .sider{
-  @include box-shadow;
-  background-color: $block-black;
+  background-color: #151a37;
 }
 .content{
-  min-height: $full-height;
-  max-height: $full-height;
+  min-height: $screen-height;
+  max-height: $screen-height;
 }

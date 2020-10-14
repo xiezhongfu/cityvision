@@ -1,0 +1,57 @@
+.tip{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 0px 400px * $multiple 0px rgba(0, 0, 0, 1);
+  // background-color: #212953;
+  // #151a37
+  background-image:linear-gradient(#151a37 0%, #212953 50%, #151a37 100%);
+  &:after{
+    content:'';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right:0;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 400px;
+    background-image: linear-gradient($background-black 0%, $main-color 50%, $background-black 100%);
+    
+    ///*          */name duration timing-function delay iteration-count direction fill-mode play-state;
+    animation: slideMove 5s linear 0s infinite normal forwards running;
+    
+    @keyframes slideMove {
+      0% { top: -400px; }
+      100% { top: 100%; }
+    }
+  }
+
+  li{
+    &:nth-child(1){
+      font-style: italic;
+      font-size: 18px * $multiple;
+      font-weight: bold;
+      color: $main-color;
+      padding-bottom: 25px * $multiple;
+      border-bottom: 1px solid #fff;
+    }
+
+    // 2-4 有 icon
+    $icons: './traffice.svg', './car.svg', './mobile.svg';
+    @for $index from 1 to 4 {
+      &:nth-child(#{$index + 1}){
+        &:before{
+          content:'';
+          @include squre(36.5px);
+          margin: 0 auto;
+          display: block;
+          background: url(nth($icons, $index)) no-repeat center;
+          background-size: 100%;
+        }
+      }
+    }
+  }
+}

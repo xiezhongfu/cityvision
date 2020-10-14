@@ -1,9 +1,13 @@
 @import './components/style/global.scss';
 
-.container{
-  // display: flex;
-
-  // .tip{
-  //   flex: 0 0 115.5px * $multiple;
-  // }
+.sider-container{
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  .nav{
+    flex: auto;
+  }
+  .mpc{
+    flex: 0 0 138px * $multiple;
+  }
 }

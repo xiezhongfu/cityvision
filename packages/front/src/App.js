@@ -6,11 +6,12 @@ import Layout from './components/layout/';
 const { Sider, Content } = Layout;
 import Logo from './components/logo/';
 import SimpeleNav from './components/nav/';
+import MPC from './components/mpc/';
 
 import TrafficIndex from './page/trafficindex/';
 import DataCollect from './page/datacollect/';
 import EnterpriseLand from './page/enterpriseland/';
-import './App.module.scss';
+import Style  from './App.module.scss';
 /* eslint-disable import/first */
 
 function App() {
@@ -23,9 +24,12 @@ function App() {
         */}
 
         {/* 左侧导航 */}
-        <Sider>
-          <Logo />
-          <SimpeleNav />
+        <Sider className={Style['sider-container']}>
+          <div className={Style['nav']}>
+            <Logo />
+            <SimpeleNav />
+          </div>
+          <MPC className={Style['mpc']} />
         </Sider>
 
         <Content>

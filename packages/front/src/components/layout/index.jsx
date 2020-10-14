@@ -18,7 +18,6 @@ class BasicLayout extends React.PureComponent {
 
 /**
  * 布局组件包装器
- * @param {*} param0 
  */
 function generator({ className, tagName, displayName }) {
   return (BasicComponent) => {
@@ -27,7 +26,8 @@ function generator({ className, tagName, displayName }) {
       static displayName = displayName;
 
       renderComponent = () => {
-        return <BasicComponent className={className} tagName={tagName} {...this.props} />;
+        const { className: _className, ...rest } = this.props;
+        return <BasicComponent className={classNames(className, _className)} tagName={tagName} {...rest} />;
       };
 
       render() {
