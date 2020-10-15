@@ -3,23 +3,23 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-  & > .map {
-    flex: 1 1 auto;
-  }
-  & > .title {
-    flex: 0 0 (38px+60px+60px) * $multiple;;
+  justify-content: center;
+
+  img{
+    height: 100%;// ???? 写动画的时候再改
   }
   .title{
     text-align: center;
     font-size: 38px * $multiple;
     color: #FEFEFF;
+    margin: 0;
+    justify-self: flex-end;
   }
   .legend{
     position: absolute;
     z-index: 1;
-    bottom: 100px * $multiple;
-    right: 0;
+    bottom: 54px * $multiple;
+    right: 204px * $multiple;
     font-size: 24px * $multiple;
 
     li{
@@ -31,6 +31,7 @@
         height: 35.7px * $multiple;
         border-radius: 8px * $multiple;
         margin-right: 24px * $multiple;
+        vertical-align: middle;
       }
       &:nth-child(1){
         &::before{

@@ -1,23 +1,21 @@
 .container{
-  @include box-container(671.3px);
+  @include box-shadow;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
+  justify-content: space-around;
   align-items: stretch;
-  padding: 70px * $multiple 50px * $multiple 0;
+  padding: 0 91px * $multiple;
 
   & > *{
-    flex: 1 1 162.5px * $multiple;// !!! 这是环状图的高度，同 ReactEcharts 的高度限制一致
-    &:nth-child(1){
-      flex-basis: 0;
-      margin: 0;
-    }
+    flex: 0 0 163px * $multiple;// !!! 这是环状图的高度，同 ReactEcharts 的高度限制一致
   }
 
   .title{
     text-align: center;
     font-size: 38px * $multiple;
     color: $title-color;
+    flex-basis: 0;
+    margin: 0;
   }
 
   .today, .lastweek-period{
@@ -25,10 +23,14 @@
     justify-content: center;
     align-content: stretch;
     align-items: center;
-    & > *{
-      flex: 1 1 calc(100% / 3);
+
+    & > * {
       &:nth-child(1){
-        flex-basis: 150px * $multiple;
+        font-size:34px  * $multiple;
+        flex: 0 0 190px * $multiple;
+      }
+      &:not(:nth-child(1)){
+        flex: 1 1 calc(100% / 3);
       }
     }
   }

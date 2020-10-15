@@ -4,10 +4,11 @@
   display: flex;
   justify-content: stretch;
   align-items: stretch;
+  
   .nav{
     flex: auto;
   }
   .mpc{
-    flex: 0 0 138px * $multiple;
+    flex: 0 0 145px * $multiple;
   }
 }

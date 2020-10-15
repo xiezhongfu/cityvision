@@ -30,10 +30,6 @@ $content-color:#fff;
   border-radius: 15px * $multiple;
   background-color: $box-black;
 }
-@mixin box-container($height) { 
-  height: $height * $multiple;
-  @include box-shadow;
-}
 @mixin size($width, $height) {
   width: $width * $multiple;
   height: $height * $multiple;

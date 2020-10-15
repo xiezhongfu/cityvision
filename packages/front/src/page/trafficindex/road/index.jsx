@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEcharts from '../../../components/enhance-echarts-for-react/';
-import getLevel, { getSafeRandom, getSafeGaussianRandom } from './random';
+import getLevel, { getSafeRandom, getSafeGaussianRandom } from '../../../components/random/';
 
 import GovernmentSrc from './img/government.svg';
 import SchoolSrc from './img/school.svg';
@@ -38,277 +38,293 @@ const TIME_RANGE = {
  * 颜色库
  */
 // Y 方向需要 ROADS_MOCK.length 组;
-const  COLORS_STORE =  ROADS_MOCK.map(()  => {
+const COLORS_STORE = ROADS_MOCK.map(() => {
   // X 方向产生 RANGE_LENGTH 个颜色
   return getSafeRandom(RANGE_LENGTH).map(i => getLevel(i * 10));
 });
 console.log('COLORS_STORE:', COLORS_STORE);
+// ++++++++++++++++++++++++++++++++++++++++++++++
+
+const TITLE_FONT_SIZE = window.$parseMultiple(37);
+const SUB_TITLE_FONT_SIZE = window.$parseMultiple(27);
+const ICON_SIZE = window.$parseMultiple(41)
 
 export default class TrafficIndex extends React.PureComponent {
   render() {
     return (
       <div className={Style['container']}>
-        <div className={Style['progress']}>
-          <div className={Style['echarts-for-react-wrap']}>
-            <ReactEcharts
-              style={{ height: `70vh` }}
-              option={{
-                title: {
-                  text: "指数变化",
-                  left: "center",
-                  top: "top",
-                  textStyle: {
+        <ul className={Style['title']}>
+          <li>路段名称</li>
+          <li>指数变化</li>
+          <li>附近</li>
+        </ul>
+        <div className={Style['echarts-for-react-wrap']}>
+          <ReactEcharts
+            style={{ height: '100%' }}
+            option={{
+              // title: {
+              //   text: "指数变化",
+              //   left: "center",
+              //   top: "top",
+              //   textStyle: {
+              //     color: '#fff',
+              //     fontSize: TITLE_FONT_SIZE
+              //   },
+              // },
+              grid: {
+                show: false,
+                top: window.$parseMultiple(TITLE_FONT_SIZE + SUB_TITLE_FONT_SIZE),// 恰好流出标题字体大小的空间，和1倍字体大小的间距
+                right: window.$parseMultiple(91 + ICON_SIZE * 3),
+                bottom: window.$parseMultiple(0),
+                left: window.$parseMultiple(91),
+              },
+              xAxis: [
+                {
+                  type: 'value',
+                  position: 'top',
+                  nameTextStyle: {
+                    color: '#F7F1FF',
+                    align: 'right',
+                  },
+                  splitLine: {
+                    show: false,
+                  },
+                  axisLine: {
+                    show: false,
+                  },
+                  axisTick: {
+                    show: false,
+                  },
+                  axisLabel: {
+                    show: true,
                     color: '#fff',
-                    fontSize: 18
+                    showMinLabel: true,
+                    showMaxLabel: true,
+                    formatter: function (value, index) {
+                      return TIME_RANGE[index];
+                    },
+                    fontSize: SUB_TITLE_FONT_SIZE
                   },
-                },
-                grid: {
-                  top: 75,
-                  right: 41,
-                  bottom: 0,
-                },
-                xAxis: [
-                  {
-                    type: 'value',
-                    position: 'top',
-                    splitLine: {
-                      show: false
-                    },
-                    nameTextStyle: {
-                      color: '#F7F1FF',
-                      align: 'right',
-                    },
-                    axisLine: {
-                      show: false,
-                    },
-                    axisLabel: {
-                      show: true,
-                      color: '#fff',
-                      showMinLabel: true,
-                      showMaxLabel: true,
-                      formatter: function (value, index) {
-                        return TIME_RANGE[index];
+                  max: MAX_VALUE,
+                  interval: MIN_INTERRVAL,
+                  splitLine: {
+                    show: false,
+                  },
+                  offset: -TITLE_FONT_SIZE - SUB_TITLE_FONT_SIZE
+                }
+              ],
+              yAxis: [
+                {
+                  type: 'category',
+                  data: ROADS_MOCK,
+                  axisTick: {
+                    show: false
+                  },
+                  axisLabel: {
+                    color: '#fff',
+                    rotate: 0,
+                    fontSize: SUB_TITLE_FONT_SIZE
+                  },
+                  axisLine: {
+                    lineStyle: {
+                      color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [
+                          { offset: 0, color: 'rgba(22, 14, 35, 1)' },
+                          { offset: 0.5, color: 'rgba(208, 194, 229, 1)' },
+                          { offset: 1, color: 'rgba(22, 14, 35, 1)' }
+                        ],
                       }
-                    },
-                    max: MAX_VALUE,
-                    interval: MIN_INTERRVAL,
-                    offset: 10
+                    }
+                  },
+                  // name: '路段名称',
+                  nameGap: window.$parseMultiple(TITLE_FONT_SIZE * 3),
+                  nameTextStyle: {
+                    color: '#fff',
+                    align: 'right',
+                    fontSize: TITLE_FONT_SIZE
+                  },
+                  splitLine: {
+                    show: false,
                   }
-                ],
-                yAxis: [
-                  {
-                    type: 'category',
-                    data: ROADS_MOCK,
-                    axisTick: {
-                      show: false
-                    },
-                    axisLabel: {
-                      color: '#fff',
-                      rotate: 0
-                    },
-                    axisLine: {
-                      lineStyle: {
-                        color: {
-                          type: 'linear',
-                          x: 0,
-                          y: 0,
-                          x2: 0,
-                          y2: 1,
-                          colorStops: [
-                            { offset: 0, color: 'rgba(22, 14, 35, 1)' },
-                            { offset: 0.5, color: 'rgba(208, 194, 229, 1)' },
-                            { offset: 1, color: 'rgba(22, 14, 35, 1)' }
-                          ],
-                        }
-                      }
-                    },
-                    name: '路段名称',
-                    nameGap: 50,
-                    nameTextStyle: {
-                      color: '#fff',
-                      align: 'right',
-                      fontSize: 18
-                    },
+                },
+                {
+                  type: 'category',
+                  data: ROADS_MOCK,
+                  axisTick: {
+                    show: false
                   },
-                  {
-                    type: 'category',
-                    data: ROADS_MOCK,
-                    axisTick: {
-                      show: false
+                  // name: '附近',
+                  nameGap: window.$parseMultiple(TITLE_FONT_SIZE * 3),
+                  nameTextStyle: {
+                    color: '#fff',
+                    align: 'left',
+                    fontSize: TITLE_FONT_SIZE
+                  },
+                  axisLabel: {
+                    color: '#fff',
+                    rotate: 0,
+                    // 根据 index 定制 icon
+                    formatter: function (value, index) {
+                      const data = [
+                        ['{government|}', '{market|}',],// 第 1 条路
+                        ['{government|}', '{market|}', '{scenic|}'],
+                        ['{government|}', '{station|}', '{school|}'],
+                        ['{government|}', '{market|}', '{school|}'],
+                        ['{government|}', '{station|}', '{hospital|}'],
+                        ['{government|}', '{market|}', '{school|}'],
+                        ['{government|}', '{station|}', '{hospital|}'],// 第 7 条路
+                      ]
+                      return data[index].join(' ');
                     },
-                    name: '附近',
-                    nameGap: 50,
-                    nameTextStyle: {
-                      color: '#fff',
-                      align: 'left',
-                      fontSize: 18
-                    },
-                    axisLabel: {
-                      color: '#fff',
-                      rotate: 0,
-                      // formatter: [
-                      //   '{government|}',
-                      //   '{school|}',
-                      //   '{hospital|}',
-                      //   '{station|}',
-                      //   '{market|}',
-                      //   '{scenic|}',
-                      // ].join(' '),
-                      // 根据 index 定制 icon
-                      formatter: function (value, index) {
-                        const data = [
-                          ['{government|}', '{market|}',],// 第 1 条路
-                          ['{government|}', '{market|}', '{scenic|}'],
-                          ['{government|}', '{station|}', '{school|}'],
-                          ['{government|}', '{market|}', '{school|}'],
-                          ['{government|}', '{station|}', '{hospital|}'],
-                          ['{government|}', '{market|}', '{school|}'],
-                          ['{government|}', '{station|}', '{hospital|}'],// 第 7 条路
-                        ]
-                        return data[index].join(' ');
+
+                    rich: {
+                      // 政府
+                      government: {
+                        backgroundColor: {
+                          image: GovernmentSrc,
+                          width: ICON_SIZE,
+                          height: ICON_SIZE
+                        },
                       },
-
-                      rich: {
-                        // 政府
-                        government: {
-                          backgroundColor: {
-                            image: GovernmentSrc,
-                            width: 41,
-                            height: 41
-                          },
+                      // 学校
+                      school: {
+                        backgroundColor: {
+                          image: SchoolSrc,
+                          width: ICON_SIZE,
+                          height: ICON_SIZE
                         },
-                        // 学校
-                        school: {
-                          backgroundColor: {
-                            image: SchoolSrc,
-                            width: 41,
-                            height: 41
-                          },
+                      },
+                      // 医院
+                      hospital: {
+                        backgroundColor: {
+                          image: HispitalSrc,
+                          width: ICON_SIZE,
+                          height: ICON_SIZE
                         },
-                        // 医院
-                        hospital: {
-                          backgroundColor: {
-                            image: HispitalSrc,
-                            width: 41,
-                            height: 41
-                          },
+                      },
+                      // 车站
+                      station: {
+                        backgroundColor: {
+                          image: StationSrc,
+                          width: ICON_SIZE,
+                          height: ICON_SIZE
                         },
-                        // 车站
-                        station: {
-                          backgroundColor: {
-                            image: StationSrc,
-                            width: 41,
-                            height: 41
-                          },
+                      },
+                      // 商场
+                      market: {
+                        backgroundColor: {
+                          image: MarketSrc,
+                          width: ICON_SIZE,
+                          height: ICON_SIZE
                         },
-                        // 商场
-                        market: {
-                          backgroundColor: {
-                            image: MarketSrc,
-                            width: 41,
-                            height: 41
-                          },
+                      },
+                      // 景区
+                      scenic: {
+                        backgroundColor: {
+                          image: ScenicSrc,
+                          width: ICON_SIZE,
+                          height: ICON_SIZE
                         },
-                        // 景区
-                        scenic: {
-                          backgroundColor: {
-                            image: ScenicSrc,
-                            width: 41,
-                            height: 41
-                          },
-                        },
+                      },
+                    }
+                  },
+                  axisLine: {
+                    lineStyle: {
+                      color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [
+                          { offset: 0, color: 'rgba(22, 14, 35, 1)' },
+                          { offset: 0.5, color: 'rgba(208, 194, 229, 1)' },
+                          { offset: 1, color: 'rgba(22, 14, 35, 1)' }
+                        ],
                       }
-                    },
-                    axisLine: {
-                      lineStyle: {
+                    }
+                  },
+                  splitLine: {
+                    show: false
+                  }
+                }
+              ],
+              series: (new Array(RANGE_LENGTH)).fill(0).map((currentTime, indexTime, arrayTime) => {
+                return {
+                  name: '某个时刻',
+                  type: 'bar',
+                  stack: STACK_INTO_GROUP,
+                  // 当前时间下，各个路口的交通指数
+                  data: (new Array(ROADS_MOCK.length)).fill(0).map((currentRoad, indexRoad/* , arrayRoad */) => {
+                    let preIndexTime;
+                    let nextIndexTime;
+                    let barBorderRadius;
+
+                    // 第一个时间
+                    if (indexTime === 0) {
+                      preIndexTime = indexTime;
+                      nextIndexTime = indexTime + 1;
+                      barBorderRadius = [7, 0, 0, 7];//（顺时针左上，右上，右下，左下）
+                    }
+                    // 最后一个时间
+                    else if (indexTime === arrayTime.length - 1) {
+                      preIndexTime = indexTime;
+                      nextIndexTime = indexTime;
+                      barBorderRadius = [0, 7, 7, 0];
+                    } else {
+                      preIndexTime = indexTime;
+                      nextIndexTime = indexTime + 1;
+                      barBorderRadius = 0;
+                    }
+
+                    return {
+                      value: MIN_INTERRVAL,// value 可以设置成任何数值。这里使用的4代表了：假设每4个小时为最小单位计算一次交通指数
+                      itemStyle: {
+                        // 如果不需要过度效果，直接使用  getLevel() 简单化用随机的颜色表达了交通指数
                         color: {
                           type: 'linear',
                           x: 0,
-                          y: 0,
-                          x2: 0,
+                          y: 1,
+                          x2: 1,
                           y2: 1,
                           colorStops: [
-                            { offset: 0, color: 'rgba(22, 14, 35, 1)' },
-                            { offset: 0.5, color: 'rgba(208, 194, 229, 1)' },
-                            { offset: 1, color: 'rgba(22, 14, 35, 1)' }
+                            { offset: 0, color: COLORS_STORE[indexRoad][preIndexTime] },                   // 前一个位置的颜色
+                            { offset: 0.5/* getSafeGaussianRandom() */, color: COLORS_STORE[indexRoad][indexTime] },// 当前位置的颜色
+                            { offset: 1, color: COLORS_STORE[indexRoad][nextIndexTime] }                   // 后一个位置的颜色
                           ],
-                        }
+                        },
+                        barBorderRadius,
                       }
-                    },
-                  }
-                ],
-                series: (new Array(RANGE_LENGTH)).fill(0).map((currentTime, indexTime, arrayTime) => {
-                  return {
-                    name: '某个时刻',
-                    type: 'bar',
-                    stack: STACK_INTO_GROUP,
-                    // 当前时间下，各个路口的交通指数
-                    data: (new Array(ROADS_MOCK.length)).fill(0).map((currentRoad, indexRoad/* , arrayRoad */) => {
-                      let preIndexTime;
-                      let nextIndexTime;
-                      let barBorderRadius;
-
-                      // 第一个时间
-                      if (indexTime === 0) {
-                        preIndexTime = indexTime;
-                        nextIndexTime = indexTime + 1;
-                        barBorderRadius = [7, 0, 0, 7];//（顺时针左上，右上，右下，左下）
-                      }
-                      // 最后一个时间
-                      else if (indexTime === arrayTime.length - 1) {
-                        preIndexTime = indexTime;
-                        nextIndexTime = indexTime;
-                        barBorderRadius = [0, 7, 7, 0];
-                      } else {
-                        preIndexTime = indexTime;
-                        nextIndexTime = indexTime + 1;
-                        barBorderRadius = 0;
-                      }
-
-                      return {
-                        value: MIN_INTERRVAL,// value 可以设置成任何数值。这里使用的4代表了：假设每4个小时为最小单位计算一次交通指数
-                        itemStyle: {
-                          // 如果不需要过度效果，直接使用  getLevel() 简单化用随机的颜色表达了交通指数
-                          color: {
-                            type: 'linear',
-                            x: 0,
-                            y: 1,
-                            x2: 1,
-                            y2: 1,
-                            colorStops: [
-                              { offset: 0, color: COLORS_STORE[indexRoad][preIndexTime] },                   // 前一个位置的颜色
-                              { offset: getSafeGaussianRandom(), color: COLORS_STORE[indexRoad][indexTime] },// 当前位置的颜色
-                              { offset: 1, color: COLORS_STORE[indexRoad][nextIndexTime] }                   // 后一个位置的颜色
-                            ],
-                          },
-                          barBorderRadius,
-                        }
-                      };
-                    })
-                  };
-                })
-              }}
-            />
-            <div className={Style['legend']}>
-              <ul className={Style['degree']}>
-                <li>通畅</li>
-                <li>基本通畅</li>
-                <li>缓行</li>
-                <li>较拥堵</li>
-                <li>拥堵</li>
-              </ul>
-              <ul className={Style['tip']}>
-                <li>拥堵高发路段</li>
-                <li>政府</li>
-                <li>学校</li>
-                <li>医院</li>
-                <li>车站</li>
-                <li>商场</li>
-                <li>景区</li>
-              </ul>
-            </div>
-          </div>
+                    };
+                  })
+                };
+              })
+            }}
+          />
         </div>
+        <div className={Style['legend']}>
+            <ul className={Style['degree']}>
+              <li>通畅</li>
+              <li>基本通畅</li>
+              <li>缓行</li>
+              <li>较拥堵</li>
+              <li>拥堵</li>
+            </ul>
+            <ul className={Style['tip']}>
+              <li>拥堵高发路段</li>
+              <li>政府</li>
+              <li>学校</li>
+              <li>医院</li>
+              <li>车站</li>
+              <li>商场</li>
+              <li>景区</li>
+            </ul>
+          </div>
       </div>
     );
   }

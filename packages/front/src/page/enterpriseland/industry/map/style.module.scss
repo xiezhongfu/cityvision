@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  align-items: stretch;
+
+  .map{
+    flex: 1 1 auto;
+    img{
+      max-width: 100%;
+    }
+  }
+  .legend{
+    flex: 1 1 auto;
+  }
+}

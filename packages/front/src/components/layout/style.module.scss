@@ -3,7 +3,7 @@
   min-height: $screen-height;
   max-height: $screen-height;
   grid-auto-rows: minmax($screen-height, $screen-height);
-  grid-template-columns: 530px * $multiple 1fr;
+  grid-template-columns: (336px + 145px) * $multiple 1fr;
   grid-column-gap: 0;
   grid-row-gap: 0;
 }
@@ -11,6 +11,7 @@
   background-color: #151a37;
 }
 .content{
-  min-height: $screen-height;
+  height: $screen-height;
   max-height: $screen-height;
+  padding: 108px * $multiple 126px * $multiple;
 }

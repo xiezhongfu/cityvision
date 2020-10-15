@@ -2,27 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  height: $screen-height;
+  height: 100%;
 
-  $left-width: 1221px * $multiple;
-  $middle-width: 2293px * $multiple;
+  $left-width: 25%;
+  $middle-width: 50%;
+  $right-width: calc(100% - #{$left-width + $middle-width});
 
   // 有 echarts 图，布局元素需要定宽
   .left{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: stretch;
     flex: 0 0 $left-width;
-    float: left;
+    & > * {
+      height: calc((100% - 140px) / 2);
+    }
   }
   // 为了写动画时方便位置定位，使用固定的宽度
   .middle{
     flex: 0 0 $middle-width;
-    float: left;
   }
   // 有 echarts 图，布局元素需要定宽。这里用 calc 实现剩余部分的宽度适配布局
   .right{
-    flex: 0 0 calc(100% - #{$left-width + $middle-width});
+    flex: 0 0 $right-width;
   }
 }

@@ -40,12 +40,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script>
-      // 用于开发
-      // 生产的时候设置为 1
-      window.$multiple = 1 * 2 * 100 / 11520 + 'vw';
+      // 以 vw 为基准
+      window.$multiple = 1 * 2 * 100 / 11520;
 
+      // 以 vw 为基准核算 px
       window.$parseMultiple = function(base){
-        return (base || 1) * parseFloat(window.$multiple) + 'vw';
+        return (base || 1) * parseFloat(window.$multiple) * document.documentElement.clientWidth / 100;
       };
     </script>
   </body>

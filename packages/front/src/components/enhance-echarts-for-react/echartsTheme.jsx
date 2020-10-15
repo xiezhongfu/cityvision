@@ -36,6 +36,12 @@ export default {
   title: {
     x: 'center',
     align: 'right',
+    padding: [
+      0,  // 上
+      0, // 右
+      0,  // 下
+      0, // 左
+    ]
   },
 
   // 图例

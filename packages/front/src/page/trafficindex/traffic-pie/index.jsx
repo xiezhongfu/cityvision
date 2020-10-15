@@ -28,24 +28,29 @@ class Ring extends React.PureComponent {
     return (
       <ReactEcharts
         ref={this.ref}
-        style={{ height: `${window.$parseMultiple(162.5)}`, pointerEvents: 'none'}}
+        style={{ height: `${window.$parseMultiple(163)}px`, pointerEvents: 'none'}}
         option={{
           title: {
             ...superOption.title,
             textStyle: {
-              color: '#fff',
-              fontSize: `${window.$parseMultiple(29)}`
+              color: '#EADAFF',
+              fontSize: window.$parseMultiple(29),
             },
             top: 'middle',
             right: 0
+          },
+          grid:{
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
           },
           series: superOption.series.map((current, index, array) => {
             return {
               cursor: 'default',
               type: 'pie',
-              radius: ['50%', '70%'],
+              radius: ['75%', '95%'],
               clockwise: false,
-              // silent: true,
               hoverOffset: 2,
               label: {
                 show: true,
@@ -54,7 +59,7 @@ class Ring extends React.PureComponent {
               emphasis: {
                 label: {
                   show: true,
-                  fontSize: `${window.$parseMultiple(50)}`,
+                  fontSize: window.$parseMultiple(50),
                   color: '#fff'
                 },
               },
