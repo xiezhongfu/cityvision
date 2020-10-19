@@ -1,0 +1,22 @@
+.container{
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex-direction: column;
+  
+  & > * {
+    height: 50%;
+  }
+
+  .echarts{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    & > * {
+      flex: 0 0 calc(100% / 3 - 30px);// 间隔是 30px
+      height: 100%;
+    }
+  }
+}

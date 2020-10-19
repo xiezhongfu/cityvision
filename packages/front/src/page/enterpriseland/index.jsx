@@ -1,6 +1,7 @@
 import React from 'react';
 import Industry from './industry/';
 import Economic from './economic/';
+import Land from './land';
 import Style from './style.module.scss';
 
 export default class EnterpriseLand extends React.PureComponent {
@@ -16,7 +17,9 @@ export default class EnterpriseLand extends React.PureComponent {
           <Economic />
         </div>
         {/* 土地 */}
-        <div className={Style['land']} style={{ backgroundColor: 'red' }}></div>
+        <div className={Style['land']}>
+          <Land />
+        </div>
       </div>
     )
   }
