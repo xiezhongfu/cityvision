@@ -49,18 +49,24 @@ export default class Total extends React.PureComponent {
 
                   symbol: 'roundRect',
                   orient: 'BT',
-                  symbolSize: [80, 20],
+                  symbolSize: [window.$parseMultiple(120), window.$parseMultiple(32)],
 
+                  itemStyle:{
+                    color: '#21E39D',
+                    borderColor: '#21E39D'
+                  },
                   label: {
                     verticalAlign: 'middle',
-                    color: '#fff',
+                    color: '#151937',
                     fontSize: window.$parseMultiple(25),
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    formatter: '{b}'
                   },
                   lineStyle: {
                     color: {
                       width: 10,
                       type: 'linear',
+                      curveness: 1,
                       x: 0,
                       y: 0,
                       x2: 1,

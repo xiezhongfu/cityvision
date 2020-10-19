@@ -1,9 +1,15 @@
 .container{
+  height: 100%;
   display: flex;
-  height: $screen-height;
   align-items: stretch;
 
   & > *  {
     flex: 0 0 50%;
+    &:nth-child(1){
+      padding-right: 12.5px;
+    }
+    &:nth-child(2){
+      padding-left: 12.5px;
+    }
   }
 }
