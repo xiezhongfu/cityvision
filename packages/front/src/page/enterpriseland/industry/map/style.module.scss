@@ -1,14 +1,51 @@
 .container{
   display: flex;
   align-items: stretch;
-
+  
   .map{
+    position: relative;
     flex: 1 1 auto;
-    img{
-      max-width: 100%;
+    
+    .title{
+      position: absolute;
+      z-index: 1;
+      font-size: 32px * $multiple;
+      right:50px * $multiple;
+      bottom: 0;
+      width: 538px * $multiple;
+      height: 139px * $multiple;
     }
   }
   .legend{
-    flex: 1 1 auto;
+    $colors: rgba(236, 203, 37, 1), 
+             rgba(255, 140, 22, 1),
+             rgba(148, 225, 26, 1),
+             rgba(1, 206, 160, 1),
+             rgba(0, 108, 255, 1), 
+             rgba(107, 0, 253, 1),
+             rgba(210, 51, 152, 1);
+    @include box-shadow;
+
+    li{
+      &:before{
+        content:'';
+      }
+
+      @for $index from 1 to length($colors)+1 {
+        &:nth-child(#{$index}){
+          &:before{
+            @include squre(16px);
+            margin: 0 10px 0 0;
+            display: inline-block;
+            background-color: nth($colors, $index);
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    padding: 25px * $multiple;
+    font-size: 22px * $multiple;
+    line-height: 56px* $multiple;
   }
 }

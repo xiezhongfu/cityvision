@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEcharts from '../../../components/enhance-echarts-for-react/';
-import getLevel, { getSafeRandom, getSafeGaussianRandom } from '../../../components/random/';
+import getLevel, { getSafeRandom, /* getSafeGaussianRandom */ } from '../../../components/random/';
 
 import GovernmentSrc from './img/government.svg';
 import SchoolSrc from './img/school.svg';
@@ -107,9 +107,6 @@ export default class TrafficIndex extends React.PureComponent {
                   },
                   max: MAX_VALUE,
                   interval: MIN_INTERRVAL,
-                  splitLine: {
-                    show: false,
-                  },
                   offset: -TITLE_FONT_SIZE - SUB_TITLE_FONT_SIZE
                 }
               ],
@@ -299,6 +296,11 @@ export default class TrafficIndex extends React.PureComponent {
                           ],
                         },
                         barBorderRadius,
+                        shadowColor: COLORS_STORE[indexRoad][indexTime],
+                        shadowBlur: 10,
+                        opacity:0.8,
+                        shadowOffsetX: 2,
+                        shadowOffsetY: 0,
                       }
                     };
                   })

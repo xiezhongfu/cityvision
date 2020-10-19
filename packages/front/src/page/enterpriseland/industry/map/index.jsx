@@ -1,6 +1,6 @@
 import React from 'react';
-// import { RenderComponent as BaseMap } from './map.svg';// svg 格式需要 check
-import MapSrc from './map.svg';
+import { ReactComponent as BaseMap } from './map.svg';
+import { ReactComponent as TitleBackground } from './title.svg';
 import Style from './style.module.scss';
 
 export default class Map extends React.PureComponent {
@@ -8,12 +8,13 @@ export default class Map extends React.PureComponent {
     return (
       <div className={Style['container']}>
         <div className={Style['map']}>
-          {/* <BaseMap /> */}
-          <img src={MapSrc} />
+          <BaseMap />
+          <TitleBackground className={Style['title']} />
         </div>
         <ul className={Style['legend']}>
           {
             [
+              '园区综合服务区',
               '园区综合服务区',
               '消费生活区',
               '化工产业区',

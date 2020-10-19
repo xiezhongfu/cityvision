@@ -1,0 +1,85 @@
+.block-container{
+  display: flex;
+  justify-content: stretch;
+  & > *{
+    flex: auto;
+  }
+  .title{
+    font-size:22px * $multiple;
+  }
+  .value-container{
+    margin: 30px * $multiple 0 15px * $multiple;
+    color:$main-color;
+    .value{
+      font-size:54px * $multiple;
+      font-weight: bold;
+    }
+    .unit{
+      font-size:22px * $multiple;
+      margin-left: 10px;
+    }
+  }
+  .per-container{
+    &.down{
+      color: #37DDD6;
+    }
+    &.up{
+      color: #D13357;
+    }
+
+    .per{
+      font-size:38px * $multiple;
+      font-weight: bold;
+    }
+    .status{
+      font-size:22px * $multiple;
+      margin-left: 10px;
+    }
+  }
+}
+
+.list-container{
+  li{
+    display: flex;
+    background-color: #201815;
+    box-shadow: 1px * $multiple 29px * $multiple 49px * $multiple 0 rgba(32, 24, 21, 0.51);
+    padding: 28px 36px;
+    &:not(:first-child){
+      margin-top: 36px;
+    }
+    & > * {
+      flex: auto;
+      
+      & > div:nth-child(1){
+        font-size:22px * $multiple;
+      }
+      
+      & > div:nth-child(2){
+        margin-top: 30px;
+        & > span:nth-child(1){
+          font-size: 54px * $multiple;
+          font-weight: bold;
+        }
+        & > span:nth-child(2){
+          font-size:22px * $multiple;
+          margin-left: 10px;
+        }
+      }
+  
+      &.value-container > div:nth-child(2){
+        & > span{
+          color: $main-color;
+        }
+      }
+  
+      &.diff-container > div:nth-child(2){
+        &.down > span{
+          color: #38F4E6;
+        }
+        &.up > span{
+          color: #D03458;
+        }
+      }
+    }
+  }
+}

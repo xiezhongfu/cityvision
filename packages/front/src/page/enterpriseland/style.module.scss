@@ -1,0 +1,14 @@
+.container{
+  height: 100%;
+  $economic-width: 25%;
+  display: flex;
+  justify-content:space-around;
+  align-items:stretch;
+
+  .industry, .land{
+    flex: 1 1 calc(100% / 2 - #{$economic-width} / 2);
+  }
+  .economic{
+    flex: 1 1 $economic-width;
+  }
+}

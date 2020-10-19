@@ -1,0 +1,26 @@
+.title{
+  font-size: 32px * $multiple;
+  line-height: 54px * $multiple;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-image: linear-gradient(to right, $background-black 0, $main-color 50%, $background-black 100%);
+  position: relative;
+  
+  &:before, &:after{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    background-image: linear-gradient(to right, $background-black 0, $main-color 50%, $background-black 100%);
+  }
+  &:before{
+    top: -3px;
+  }
+  &:after{
+    bottom: -3px;
+  }
+}

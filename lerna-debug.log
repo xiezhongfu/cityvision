@@ -1,0 +1,896 @@
+0 silly argv {
+0 silly argv   _: [ 'run' ],
+0 silly argv   parallel: true,
+0 silly argv   stream: true,
+0 silly argv   scope: 'front',
+0 silly argv   lernaVersion: '3.22.1',
+0 silly argv   '$0': '/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/.bin/lerna',
+0 silly argv   script: 'start'
+0 silly argv }
+1 notice cli v3.22.1
+2 verbose rootPath /Users/xiezhongfu/workspace/tsingj/cityvision
+3 info versioning independent
+4 notice filter including "front"
+5 info filter [ 'front' ]
+6 info Executing command in 1 package: "npm run start"
+7 silly npmRunScript.stream [ 'start', [], 'front' ]
+8 silly getExecOpts /Users/xiezhongfu/workspace/tsingj/cityvision/packages/front undefined
+9 error Error: Command failed: npm run start
+9 error
+9 error
+9 error > front@0.1.0 start /Users/xiezhongfu/workspace/tsingj/cityvision/packages/front
+9 error > node scripts/start.js
+9 error
+9 error [34mℹ[39m [90m｢wds｣[39m: Project is running at http://192.168.100.140/
+9 error [34mℹ[39m [90m｢wds｣[39m: webpack output is served from
+9 error [34mℹ[39m [90m｢wds｣[39m: Content not from webpack is served from /Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/public
+9 error [34mℹ[39m [90m｢wds｣[39m: 404s will fallback to /
+9 error Starting the development server...
+9 error
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Failed to compile.
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error Syntax error: Identifier 'Map' has already been declared (6:22)
+9 error
+9 error   4 | import Style from './style.module.scss';
+9 error   5 |
+9 error > 6 | export default class Map extends React.PureComponent {
+9 error     |                      ^
+9 error   7 |   render() {
+9 error   8 |     return (
+9 error   9 |       <div className={Style['container']}>
+9 error Compiling...
+9 error Failed to compile.
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error Syntax error: Unexpected token (11:9)
+9 error
+9 error    9 |       <div className={Style['container']}>
+9 error   10 |         {/* <img className={Style['map']} alt="map" src={MapSrc} /> */}<
+9 error > 11 |         <div>
+9 error      |         ^
+9 error   12 |           <BaseMap />
+9 error   13 |         </div>
+9 error   14 |         <h4 className={Style['title']}>最新车辆分布</h4>
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error   Line 3:8:  'MapSrc' is defined but never used  no-unused-vars
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Failed to compile.
+9 error
+9 error ./src/page/trafficindex/map/map.svg (/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/@svgr/webpack/lib?-svgo,+titleProp,+ref!./src/page/trafficindex/map/map.svg)
+9 error Error: ENOENT: no such file or directory, open '/Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/page/trafficindex/map/map.svg'
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error   Line 3:8:  'MapSrc' is defined but never used  no-unused-vars
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error   Line 3:8:  'MapSrc' is defined but never used  no-unused-vars
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Failed to compile.
+9 error
+9 error ./src/page/trafficindex/map/map.svg (/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/@svgr/webpack/lib?-svgo,+titleProp,+ref!./src/page/trafficindex/map/map.svg)
+9 error Error: ENOENT: no such file or directory, open '/Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/page/trafficindex/map/map.svg'
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error   Line 3:8:  'MapSrc' is defined but never used  no-unused-vars
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error   Line 3:8:  'MapSrc' is defined but never used  no-unused-vars
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error   Line 3:8:  'MapSrc' is defined but never used  no-unused-vars
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/trafficindex/map/index.jsx
+9 error   Line 3:8:  'MapSrc' is defined but never used  no-unused-vars
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Failed to compile.
+9 error
+9 error ./src/components/mpc/traffice.svg
+9 error Error: ENOENT: no such file or directory, open '/Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/components/mpc/traffice.svg'
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Failed to compile.
+9 error
+9 error ./src/components/mpc/mobile.svg
+9 error Error: ENOENT: no such file or directory, open '/Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/components/mpc/mobile.svg'
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Failed to compile.
+9 error
+9 error ./src/components/mpc/car.svg
+9 error Error: ENOENT: no such file or directory, open '/Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/components/mpc/car.svg'
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Failed to compile.
+9 error
+9 error ./src/page/trafficindex/map/map.svg (/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/@svgr/webpack/lib?-svgo,+titleProp,+ref!./src/page/trafficindex/map/map.svg)
+9 error Error: ENOENT: no such file or directory, open '/Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/page/trafficindex/map/map.svg'
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/map/index.jsx
+9 error   Line 12:11:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 3:35:    'getSafeGaussianRandom' is defined but never used  no-unused-vars
+9 error   Line 110:19:  Duplicate key 'splitLine'                          no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 110:19:  Duplicate key 'splitLine'  no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/trafficindex/road/index.jsx
+9 error   Line 110:19:  Duplicate key 'splitLine'  no-dupe-keys
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/industry/index.jsx
+9 error   Line 3:8:  'Style' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/index.jsx
+9 error   Line 2:8:  'Industry' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled with warnings.
+9 error
+9 error ./src/page/enterpriseland/index.jsx
+9 error   Line 2:8:  'Industry' is defined but never used  no-unused-vars
+9 error
+9 error Search for the keywords to learn more about each warning.
+9 error To ignore, add // eslint-disable-next-line to the line before.
+9 error
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Failed to compile.
+9 error
+9 error ./src/page/enterpriseland/style.module.scss (/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/css-loader/dist/cjs.js??ref--6-oneOf-6-1!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/postcss-loader/src??postcss!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/resolve-url-loader??ref--6-oneOf-6-3!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/sass-loader/dist/cjs.js??ref--6-oneOf-6-4!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/sass-resources-loader/lib/loader.js??ref--6-oneOf-6-5!./src/page/enterpriseland/style.module.scss)
+9 error SassError: Invalid CSS after "}": expected "}", was ""
+9 error         on line 52 of /Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/page/enterpriseland/style.module.scss
+9 error >> }
+9 error    ^
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Compiled successfully!
+9 error Compiling...
+9 error Failed to compile.
+9 error
+9 error ./src/page/enterpriseland/industry/map/style.module.scss (/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/css-loader/dist/cjs.js??ref--6-oneOf-6-1!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/postcss-loader/src??postcss!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/resolve-url-loader??ref--6-oneOf-6-3!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/sass-loader/dist/cjs.js??ref--6-oneOf-6-4!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/sass-resources-loader/lib/loader.js??ref--6-oneOf-6-5!./src/page/enterpriseland/industry/map/style.module.scss)
+9 error SassError: argument `$n` of `nth($list, $n)` must be non-zero
+9 error         on line 69 of /Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/page/enterpriseland/industry/map/style.module.scss, in function `nth`
+9 error         from line 69 of stdin
+9 error >>           background-color: nth($colors, $index);
+9 error
+9 error    ----------------------------^
+9 error Compiling...
+9 error Failed to compile.
+9 error
+9 error ./src/page/enterpriseland/industry/map/style.module.scss (/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/css-loader/dist/cjs.js??ref--6-oneOf-6-1!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/postcss-loader/src??postcss!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/resolve-url-loader??ref--6-oneOf-6-3!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/sass-loader/dist/cjs.js??ref--6-oneOf-6-4!/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/sass-resources-loader/lib/loader.js??ref--6-oneOf-6-5!./src/page/enterpriseland/industry/map/style.module.scss)
+9 error SassError: argument `$n` of `nth($list, $n)` must be non-zero
+9 error         on line 69 of /Users/xiezhongfu/workspace/tsingj/cityvision/packages/front/src/page/enterpriseland/industry/map/style.module.scss, in function `nth`
+9 error         from line 69 of stdin
+9 error >>           background-color: nth($colors, $index);
+9 error
+9 error    ----------------------------^
+9 error Compiling...
+9 error Compiled successfully!
+9 error
+9 error     at makeError (/Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/execa/index.js:174:9)
+9 error     at /Users/xiezhongfu/workspace/tsingj/cityvision/node_modules/execa/index.js:278:16

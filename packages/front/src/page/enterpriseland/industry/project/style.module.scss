@@ -1,0 +1,17 @@
+.container{
+  @include box-shadow;
+  padding: 45px * $multiple;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+
+  .title{
+    font-size: 32px * $multiple;
+    text-align: center;
+  }
+
+  .echarts-bar{
+    height: 100%;
+  }
+}

@@ -20,7 +20,8 @@ export default {
     // '#6095F2',
     '#707CBF',// 蓝紫色
     // '#FF759C',
-    '#00E1E1',
+    // '#00E1E1',
+    '#CFA972',// 黄色
     '#FFA14A',
     '#FFD21A',
     '#B8E986',
@@ -196,7 +197,7 @@ export default {
     'emptyDiamond',
   ],
   textStyle: {
-    color: 'rgba(35,40,46, .85)',
+    // color: 'rgba(35,40,46, .85)',
     // eslint-disable-next-line
     fontFamily:
       '-apple-system, BlinkMacSystemFont,"Segoe UI", Roboto,"Helvetica Neue", Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei", SimSun, sans-serif',
