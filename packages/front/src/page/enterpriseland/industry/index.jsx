@@ -10,7 +10,9 @@ export default class Industry extends React.PureComponent {
     return (
       <div className={Style['container']}>
         {/* 地图 */}
-        <div className={Style['map']}><Map /></div>
+        <div className={Style['map']}>
+          <Map />
+        </div>
         {/* echarts */}
         <div className={Style['echarts']}>
           <Economic />

@@ -50,7 +50,8 @@ export default class Economic extends React.PureComponent {
             }}
           />
         </div>
-        {/* 有 icon 为填入，需要跟设计师沟通，重新切图 */}
+        {/* TODO */}
+        {/* 有 icon 未填入，需要跟设计师沟通，重新切图 */}
         <ul className={Style['legend']}>
           {
             [

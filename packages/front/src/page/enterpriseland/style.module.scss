@@ -6,9 +6,10 @@
   align-items:stretch;
 
   .industry, .land{
-    flex: 1 1 calc(100% / 2 - #{$economic-width} / 2);
+    flex: 0 0 calc(100% / 2 - #{$economic-width} / 2);
   }
   .economic{
-    flex: 1 1 $economic-width;
+    flex: 0 0 $economic-width;
+    padding: 0 25px;
   }
 }

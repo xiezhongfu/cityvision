@@ -4,24 +4,58 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+  @include box-shadow;
 }
 
+$height: 25%;
+$averageLeft: (100% - $height) / 2;
 
 .economic-container{
-  
+  flex: 1 1 $height;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: start;
+
+  & > *{
+    width: 100%;
+    &:nth-child(2){
+      align-self: self-start;
+    }
+  }
 }
 
 .annual-total-container{
+  flex: 1 1 $averageLeft;
+
   .data-container{
+    height: 100%;
     display: flex;
-    justify-content: stretch;
+    justify-content: space-around;
     align-items: center;
-    .list{
-      display: flex;
-      justify-content: stretch;
-      & > *{
-        flex: auto;
-      }
+    padding: 0 25px;
+    
+    .data-icon{
+      @include squre(171.3px);
     }
+    .data-list{
+      width: 100%;
+      height: 100%;
+      margin-left: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+.annual-container{
+  flex: 0 0 $averageLeft;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .echarts{
+    flex: 0 0 100%;// 强制固定 echarts 的高度
   }
 }

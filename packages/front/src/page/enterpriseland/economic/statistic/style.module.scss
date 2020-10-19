@@ -1,14 +1,12 @@
 .block-container{
   display: flex;
-  justify-content: stretch;
-  & > *{
-    flex: auto;
-  }
+  justify-content: space-around;
+  
   .title{
     font-size:22px * $multiple;
   }
   .value-container{
-    margin: 30px * $multiple 0 15px * $multiple;
+    margin: 25px * $multiple 0 15px * $multiple;
     color:$main-color;
     .value{
       font-size:54px * $multiple;
@@ -43,9 +41,9 @@
     display: flex;
     background-color: #201815;
     box-shadow: 1px * $multiple 29px * $multiple 49px * $multiple 0 rgba(32, 24, 21, 0.51);
-    padding: 28px 36px;
+    padding: 25px;
     &:not(:first-child){
-      margin-top: 36px;
+      margin-top: 25px;
     }
     & > * {
       flex: auto;
@@ -55,7 +53,7 @@
       }
       
       & > div:nth-child(2){
-        margin-top: 30px;
+        margin-top: 15px;
         & > span:nth-child(1){
           font-size: 54px * $multiple;
           font-weight: bold;

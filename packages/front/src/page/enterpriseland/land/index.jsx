@@ -10,7 +10,7 @@ export default class Land extends React.PureComponent {
     return (
       <div className={Style['container']}>
         <div className={Style['map']}>
-          {/* <Map /> */}
+          <Map />
         </div>
         <div className={Style['echarts']}>
           <Total />

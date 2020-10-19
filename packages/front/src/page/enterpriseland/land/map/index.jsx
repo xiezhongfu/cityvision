@@ -14,15 +14,23 @@ export default class Map extends React.PureComponent {
         <ul className={Style['legend']}>
           {
             [
-              '园区综合服务区',
-              '园区综合服务区',
-              '消费生活区',
-              '化工产业区',
-              '装备制造业产区',
-              '仓储物流区',
-              '高科技产业区'
+              '二类居住',
+              '行政办公',
+              '商业',
+              '娱乐康体',
+              '医疗卫生',
+              '教育科研',
+              '一类工业',
+              '二类工业',
+              '一类物流仓储',
+              '交通枢纽',
+              '社会停车场',
+              '市政公用设施',
+              '防护绿地',
+              '广场',
+              '特殊',
             ].map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>{item}用地</li>
             ))
           }
         </ul>

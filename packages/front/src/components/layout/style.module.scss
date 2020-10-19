@@ -13,5 +13,6 @@
 .content{
   height: $screen-height;
   max-height: $screen-height;
-  padding: 108px * $multiple 126px * $multiple;
+  // padding: 108px * $multiple 126px * $multiple;
+  padding: 25px;
 }

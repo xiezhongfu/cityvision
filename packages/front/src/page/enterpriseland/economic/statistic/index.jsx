@@ -43,10 +43,12 @@ export class Statistic extends React.PureComponent {
 
 export class StatisticList extends React.PureComponent {
   render() {
+    const { dataSource, className } = this.props;
+    
     return (
-      <ul className={Style['list-container']}>
+      <ul className={Classnames(Style['list-container'], className)}>
         {
-          this.props.dataSource.map(item => {
+          dataSource.map(item => {
             const { title, value, unit, diffTitle, diff, status } = item;
             return (
               <li key={title}>

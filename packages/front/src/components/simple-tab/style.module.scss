@@ -1,0 +1,41 @@
+.list{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  
+  li{
+    position: relative;
+
+    &:after{
+      content:'';
+      display: block;
+      height: 4px;
+      position: absolute;
+      z-index: 1;
+      width:100%;
+      left: 0;
+      bottom: -4px;
+    }
+    &:before{
+      content:'';
+      display: block;
+      position: absolute;
+      width:0;
+      height: 0;
+      border-width: 4px 4px 0;
+      border-style: solid solid none;
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%);
+      border-color: transparent;
+    }
+    &.current{
+      &:after{
+        background-color: $main-color;
+      }
+      &:before{
+        border-color: $main-color transparent;
+      }
+    }
+  }
+}
