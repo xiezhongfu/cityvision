@@ -21,7 +21,8 @@
     align-items: stretch;
 
     & > * {
-      flex: 0 0 calc(100% / 3 - 30px);// 间隔是 30px
+      flex: 0 0 calc(100% / 3 - 25px);// 间隔是 25px
+      padding: 25px;
       height: 100%;
     }
   }

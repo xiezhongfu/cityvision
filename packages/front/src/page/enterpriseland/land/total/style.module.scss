@@ -1,3 +1,9 @@
 .container{
   @include box-shadow;
+  display: flex;
+  flex-direction: column;
+  
+  .echarts{
+    height: 100%;
+  }
 }

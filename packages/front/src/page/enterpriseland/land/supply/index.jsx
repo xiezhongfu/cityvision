@@ -1,13 +1,24 @@
 import React from 'react';
-import Tab from '../components/tab';
+import Title from '../components/title/'
+import SimpleTab from '../../../../components/simple-tab/';
 import ReactEcharts from '../../../../components/enhance-echarts-for-react';
 import Style from './style.module.scss';
 
 export default class Supply extends React.PureComponent {
+  state = {
+    value: 0
+  }
   render() {
     return (
       <div className={Style['container']}>
-        <Tab />
+        <Title>土地类型</Title>
+        <SimpleTab
+          value={this.state.value}
+          dataSource={['一', '二', '三', '四'].map(i => `${i}季度`)}
+          onItemClick={(item, value) => {
+            this.setState({ value });
+          }}
+        />
         <div className={Style['react-echarts']}>
           <ReactEcharts
             style={{ height: '100%' }}

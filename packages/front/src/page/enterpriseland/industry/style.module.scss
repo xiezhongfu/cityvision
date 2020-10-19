@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items:stretch;
     & > *{
-      flex: 0 0 33%;// 不用 100 / 3 ，特意让出现间距
+      flex: 0 0 calc(100% / 3 - 25px);// 间隔是 25px
     }
   }
 }

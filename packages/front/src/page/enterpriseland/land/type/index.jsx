@@ -1,5 +1,6 @@
 import React from 'react';
-import Tab from '../components/tab';
+import Title from '../components/title/'
+import SimpleTab from '../../../../components/simple-tab/';
 import ReactEcharts from '../../../../components/enhance-echarts-for-react/';
 import Style from './style.module.scss';
 
@@ -14,83 +15,98 @@ const VALUES = [
 const MAX = 1000;
 
 export default class Total extends React.PureComponent {
+  state = {
+    value: 0
+  }
   render() {
     return (
       <div className={Style['container']}>
-        <Tab />
-        <ReactEcharts
-          option={{
-            grid: {
-              left: 0,
-              right: 0,
-              bottom: 0,
-            },
-            xAxis: {
-              type: 'value',
-              splitLine: {
-                show: false,
-              },
-              axisLine: {
-                show: false,
-              },
-              axisTick: {
-                show: false,
-              },
-            },
-            yAxis: [{
-              type: 'category',
-              data: TYPES,
-              splitLine: {
-                show: false,
-              },
-              axisTick: {
-                show: false
-              },
-              axisLabel: {
-                color: '#fff',
-                rotate: 0,
-                fontSize: window.$parseMultiple(24)
-              },
-              axisLine: {
-                show: false
-              }
-            },
-            {
-              type: 'category',
-              position: 'right',
-              data: VALUES,
-              splitLine: {
-                show: false,
-              },
-              axisTick: {
-                show: false
-              },
-              axisLabel: {
-                color: '#fff',
-                rotate: 0,
-                fontSize: window.$parseMultiple(24)
-              },
-              axisLine: {
-                show: false
-              }
-            }],
-            series: [
-              {
-                type: 'bar',
-                itemStyle: {
-                  color: '#000000'
-                },
-                data: new Array(TYPES.length).fill(MAX),
-                animation: false
-              },
-              {
-                type: 'bar',
-                barGap: '-100%',
-                data: VALUES
-              }
-            ]
+        <Title>土地类型</Title>
+        <SimpleTab
+          value={this.state.value}
+          dataSource={['一', '二', '三', '四'].map(i => `${i}季度`)}
+          onItemClick={(item, value) => {
+            this.setState({ value });
           }}
         />
+        <div className={Style['echarts']}>
+          <ReactEcharts
+            style={{ height: '100%' }}
+            option={{
+              grid: {
+                left: 0,
+                right: 0,
+                bottom: 0,
+              },
+              xAxis: {
+                type: 'value',
+                splitLine: {
+                  show: false,
+                },
+                axisLine: {
+                  show: false,
+                },
+                axisTick: {
+                  show: false,
+                },
+              },
+              yAxis: [{
+                type: 'category',
+                data: TYPES,
+                splitLine: {
+                  show: false,
+                },
+                axisTick: {
+                  show: false
+                },
+                axisLabel: {
+                  color: '#fff',
+                  rotate: 0,
+                  fontSize: window.$parseMultiple(24)
+                },
+                axisLine: {
+                  show: false
+                }
+              },
+              {
+                type: 'category',
+                position: 'right',
+                data: VALUES,
+                splitLine: {
+                  show: false,
+                },
+                axisTick: {
+                  show: false
+                },
+                axisLabel: {
+                  color: '#fff',
+                  rotate: 0,
+                  fontSize: window.$parseMultiple(24)
+                },
+                axisLine: {
+                  show: false
+                }
+              }],
+              series: [
+                {
+                  type: 'bar',
+                  itemStyle: {
+                    color: '#151A36',
+                    shadowColor: 'rgba(0, 0, 0, 0.5)',
+                    shadowBlur: 5
+                  },
+                  data: new Array(TYPES.length).fill(MAX),
+                  animation: false
+                },
+                {
+                  type: 'bar',
+                  barGap: '-100%',
+                  data: VALUES
+                }
+              ]
+            }}
+          />
+        </div>
       </div>
     );
   }
