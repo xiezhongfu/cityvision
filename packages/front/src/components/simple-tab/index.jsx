@@ -13,7 +13,7 @@ export default class SimpleTab extends React.PureComponent {
             <li
               key={item}
               className={Classnames({
-                [Style['current']]: value == index
+                [Style['current']]: value === index
               })}
               onClick={() => {
                 onItemClick(item, index);
