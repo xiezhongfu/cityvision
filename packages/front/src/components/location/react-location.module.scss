@@ -1,0 +1,40 @@
+.point-pop-container{
+  position: absolute;
+  z-index: 1000;
+  background-color: #070A17;
+  box-shadow: 8px 8px 2px rgba(7, 10, 23, 1), -8px -8px 2px rgba(7, 10, 23, .5);
+  padding: 15px;
+  border-radius: 10px;
+
+  transform: translate(-100%, -100%);
+  margin-left: (25px + 5px) / 2;
+  margin-top: -(25px + + 5px + 15px);
+
+  .content{
+
+  }
+  .pointer{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+    border: 5px solid red;
+    position: absolute;
+    z-index: 1;
+    bottom: -35px;
+    right: 0;
+
+    &:after {
+      content:'';
+      display:block;
+      border-width: 15px 10px 0;
+      border-color: red transparent transparent;
+      border-style: solid;
+      position: absolute;
+      z-index: 1;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

@@ -12,7 +12,7 @@ export default class Economic extends React.PureComponent {
             style={{ height: '100%' }}
             option={{
               title: {
-                text: '123456.7',
+                text: '201231.56',
                 subtext: 'GDP营收/万元',
                 textStyle: {
                   color: '#22E49D',
@@ -36,9 +36,9 @@ export default class Economic extends React.PureComponent {
                   type: 'pie',
                   radius: ['65%', '85%'],
                   data: [
-                    { value: 0.50, name: '第一产业' },
-                    { value: 0.25, name: '第二产业' },
-                    { value: 0.25, name: '第三产业' }
+                    { value: 0.2, name: '第一产业' },
+                    { value: 0.3, name: '第二产业' },
+                    { value: 0.5, name: '第三产业' }
                   ],
                   clockwise: false,
                   itemStyle: {
@@ -55,14 +55,21 @@ export default class Economic extends React.PureComponent {
         <ul className={Style['legend']}>
           {
             [
-              { value: 653.2, title: '投资', subTitle: '(亿人民币)' },
-              { value: 374.9, title: '固定资产', subTitle: '(亿人民币)' },
-              { value: 82760, title: '员工人数', subTitle: '(人)' },
+              { value: 77910.24, icon: [require('./disk.svg'), require('./investment.svg')], title: '投资', subTitle: '(万人民币)' },
+              { value: 123321.32, icon: [require('./disk.svg'), require('./assets.svg')], title: '固定资产', subTitle: '(万人民币)' },
+              { value: 537643, icon: [require('./disk.svg'), require('./person.svg')], title: '员工人数', subTitle: '(人)' },
             ].map(item => {
+              const [afterIcon, beforeIcon] = item.icon;
               return (
                 <li key={item.title}>
-                  <div className={Style['item-title']}>{item.value}</div>
-                  <div className={Style['item-sub-title']}>{item.subTitle}</div>
+                  <div className={Style['item-title']}>
+                    <div style={{ backgroundImage: `url(${beforeIcon})` }}></div>
+                    <div>
+                      {item.value}
+                    </div>
+                    <div style={{ backgroundImage: `url(${afterIcon})` }}></div>
+                  </div>
+                  <div className={Style['item-sub-title']}>{item.title}<br />{item.subTitle}</div>
                 </li>
               );
             })

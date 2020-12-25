@@ -8,6 +8,7 @@ import Style from './style.module.scss';
 
 // 环形图
 // superOption 的结构和 option 的结构一致，方便透传数据
+// 交通指数最大值是 10
 class Ring extends React.PureComponent {
   ref = React.createRef()
 
@@ -22,13 +23,20 @@ class Ring extends React.PureComponent {
       dataIndex: 0,
     });
   }
+  static maxValue = 10
+  static dataSourceForEchartsFormat(value) {
+    return ([
+      { value, name: `${value}` },
+      { value: Ring.maxValue - value, name: `${Ring.maxValue - value}` },
+    ]);
+  }
   render() {
     const { option: superOption } = this.props;
 
     return (
       <ReactEcharts
         ref={this.ref}
-        style={{ height: `${window.$parseMultiple(163)}px`, pointerEvents: 'none'}}
+        style={{ height: `${window.$parseMultiple(163)}px`, pointerEvents: 'none' }}
         option={{
           title: {
             ...superOption.title,
@@ -39,7 +47,7 @@ class Ring extends React.PureComponent {
             top: 'middle',
             right: 0
           },
-          grid:{
+          grid: {
             top: 0,
             right: 0,
             bottom: 0,
@@ -87,10 +95,7 @@ export default class TrafficPie extends React.PureComponent {
             option={{
               title: { text: '早高峰' },
               series: [{
-                data: [
-                  { value: 4.8, name: '4.8' },
-                  { value: 5.2, name: '5.2' },
-                ]
+                data: Ring.dataSourceForEchartsFormat(7.5)
               }],
             }}
           />
@@ -98,10 +103,7 @@ export default class TrafficPie extends React.PureComponent {
             option={{
               title: { text: '晚高峰' },
               series: [{
-                data: [
-                  { value: 4.6, name: '4.6', },
-                  { value: 5.4, name: '5.4' },
-                ]
+                data: Ring.dataSourceForEchartsFormat(6)
               }],
             }}
           />
@@ -113,10 +115,7 @@ export default class TrafficPie extends React.PureComponent {
             option={{
               title: { text: '早高峰' },
               series: [{
-                data: [
-                  { value: 4.8, name: '4.8' },
-                  { value: 5.2, name: '5.2' },
-                ]
+                data: Ring.dataSourceForEchartsFormat(7)
               }],
             }}
           />
@@ -124,10 +123,7 @@ export default class TrafficPie extends React.PureComponent {
             option={{
               title: { text: '晚高峰' },
               series: [{
-                data: [
-                  { value: 4.6, name: '4.6' },
-                  { value: 5.4, name: '5.4' },
-                ]
+                data: Ring.dataSourceForEchartsFormat(7.5)
               }],
             }}
           />

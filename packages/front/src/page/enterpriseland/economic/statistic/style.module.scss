@@ -39,11 +39,12 @@
 .list-container{
   li{
     display: flex;
-    background-color: #201815;
-    box-shadow: 1px * $multiple 29px * $multiple 49px * $multiple 0 rgba(32, 24, 21, 0.51);
+    background: #1B2143;
+    box-shadow: 0px 0px 200px * $multiple 0px rgba(32, 24, 21, 1) inset;
     padding: 25px;
+
     &:not(:first-child){
-      margin-top: 25px;
+      margin-top: 15px;
     }
     & > * {
       flex: auto;

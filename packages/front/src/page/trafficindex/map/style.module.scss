@@ -38,25 +38,77 @@
         vertical-align: middle;
       }
       &:nth-child(1){
-        &::before{
-          background-color: #FF3B67;
+        &:before{
+          border-radius: 50%;
         }
       }
-      &:nth-child(2){
-        &::before{
-          background-color: #F7FFFF;
+      $colors: #FF3B67,#F7FFFF,#22E49D,#662EAB;
+      @for $index from 1 to length($colors) + 1 {
+        &:nth-child(#{$index}){
+          &:before{
+            background-color: nth($colors, $index);
+          }
         }
       }
-      &:nth-child(3){
-        &::before{
-          background-color: #22E49D;
+    }
+  }
+}
+
+.wrap{
+  .point{
+    position: absolute;
+    z-index: 1;
+    @include squre(23px * 2);
+    border-radius: 50%;
+  }
+
+  .sparkle-container{
+    position: absolute;
+    z-index: 1;
+    @include squre(146px);
+    border-radius: 50%;
+    background-color:rgba(255, 59, 103, .2);
+    transform: translate(-50%, -50%);
+
+    .circle{
+      position: absolute;
+      z-index: 1;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // name duration timing-function delay iteration-count direction fill-mode play-state;
+      animation:opacityAnimation 5s ease-in-out infinite reverse backwards;
+      box-shadow:0 0 10px #FF3B67;
+
+      $squre: 50px, 75px, 100px;// 从内向外
+      @for $index from 1 to length($squre) + 1 {
+        &:nth-child(#{$index}){
+          @include squre(nth($squre, $index));
+          background-color: transparent;
+          border: 2px solid #FF3B67;
+          animation-delay: #{$index * 1.5}s;
         }
       }
-      &:nth-child(4){
-        &::before{
-          background-color: #662EAB;
+
+      @keyframes opacityAnimation{
+        from {
+          opacity:0;
+        }
+        to {
+          opacity:1;
         }
       }
+    }
+    .center{
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include squre(23px);
+      border-radius: 50%;
+      background-color:#FF3B67;
     }
   }
 }

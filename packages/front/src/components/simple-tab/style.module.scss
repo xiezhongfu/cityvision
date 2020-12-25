@@ -1,10 +1,11 @@
 .list{
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
   
   li{
     position: relative;
+    cursor: pointer;
+    font-size: 25px * $multiple;
 
     &:after{
       content:'';
@@ -35,6 +36,38 @@
       }
       &:before{
         border-color: $main-color transparent;
+      }
+    }
+  }
+}
+
+.list-vertical{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  li{
+    position: relative;
+    cursor: pointer;
+    font-size: 25px * $multiple;
+
+    &.current{
+      $color: rgba(34, 228, 157, 1);
+      color: $color;
+      border-right: 1px solid $color;
+      
+      &:after{
+        content:'';
+        display: block;
+        position: absolute;
+        width:0;
+        height: 0;
+        border-width: 4px 0 4px 4px;
+        border-style: solid none solid solid; 
+        top: 50%;
+        right: -4px;
+        transform: translateY(-50%);
+        border-color: transparent transparent transparent $color;
       }
     }
   }

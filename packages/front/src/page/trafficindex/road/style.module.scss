@@ -29,38 +29,26 @@
       li:not(:last-child){
         margin-right: 25px * $multiple;
       }
-      li:before{
-        content:'';
+      // 颜色 tips
+      li > i{
         display: inline-block;
         margin-right: 10px * $multiple;
-        width: 8px * $multiple;
-        height: 8px * $multiple;
+        width: 16px * $multiple;
+        height: 16px * $multiple;
         vertical-align: middle;
         transform: rotate(45deg);
       }
-      li:nth-child(1){
-        &:before{
-          background-color:#22E49D;
-        }
-      }
-      li:nth-child(2){
-        &:before{
-          background-color:#663DAD;
-        }
-      }
-      li:nth-child(3){
-        &:before{
-          background-color:#FCCC28;
-        }
-      }
-      li:nth-child(4){
-        &:before{
-          background-color:#CA45BC;
-        }
-      }
-      li:nth-child(5){
-        &:before{
-          background-color:#FF3E5F;
+
+      li{
+        // 从通畅 到 拥堵
+        $colors: #75d6c7, #4964c5, #e6457e;
+  
+        @for $index from 1 to length($colors) + 1 {
+          &:nth-child(#{$index}){
+            &:before{
+              background-color: nth($colors, $index);
+            }
+          }
         }
       }
     }

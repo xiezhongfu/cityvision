@@ -1,15 +1,36 @@
 .legend{
-  padding: 0 25px;
+  padding: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  background-color:rgba(10, 13, 30, .85);
+  box-shadow: 0px 0px 25px 2px rgba(17, 21, 47, 0.38);
+  border-radius: 15px;
+
   li{
     padding: 25px;
-    @include box-shadow;
     color: #C7C7C7;
     font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #070A17;
+    box-shadow: 0px 0px 25px 2px rgba(17, 21, 47, 0.38);
+    border-radius: 15px;
+    cursor: pointer;
+
+    &.tip{
+      display: flex;
+      justify-content: space-around;
+      background-color:rgba(10, 13, 30, .85);
+      border-width: 19px * $multiple 0;
+      border-style: solid;
+      border-color: rgba(25, 190, 169, 1);
+    }
+
+    &.selected{
+      background-color: #1A2041;
+      box-shadow: 0px 0px 27px 0px rgba(17, 10, 28, 0.92);
+    }
 
     .icon{
       @include squre(116px);
@@ -25,9 +46,10 @@
       margin-top: 25px;
       & > *:nth-child(1){     
         font-size: 95px * $multiple;
+        font-weight: bold;
       }
       & > *:nth-child(2){     
-        font-size: 24px;
+        font-size: 24px  * $multiple;
         margin-left: 12px;
       }
     }

@@ -11,7 +11,10 @@ import MPC from './components/mpc/';
 import TrafficIndex from './page/trafficindex/';
 import DataCollect from './page/datacollect/';
 import EnterpriseLand from './page/enterpriseland/';
-import Style  from './App.module.scss';
+import Style from './App.module.scss';
+
+import { startInterval as startFrameMessageChannelInterval } from './components/frame-messagechannel/';
+startFrameMessageChannelInterval();
 /* eslint-disable import/first */
 
 function App() {

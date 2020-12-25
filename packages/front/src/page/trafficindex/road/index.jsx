@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactEcharts from '../../../components/enhance-echarts-for-react/';
-import getLevel, { getSafeRandom, /* getSafeGaussianRandom */ } from '../../../components/random/';
+import getLevel, { getSafeRandom, getRandomValuesLimitedRange, colors, /* getSafeGaussianRandom */ } from '../../../components/random/';
 
 import GovernmentSrc from './img/government.svg';
 import SchoolSrc from './img/school.svg';
@@ -11,6 +11,8 @@ import ScenicSrc from './img/scenic.svg';
 
 import Style from './style.module.scss';
 
+const uniqueColors = [...new Set(colors)];
+
 /**
  * 实现思路
  * 1: 正常堆叠图
@@ -20,19 +22,39 @@ import Style from './style.module.scss';
  * 
  * 交通指数 eg:
  * 1: 昨天 17 点 ----> 今天 17 点 ----> 明天 17 点
- * 2: 最小刻度是 4 个小时(为了简化，假设在业务上，每4个小时为最小单位计算一次交通指数)，整数刻度范围是: [0, 48/4)
+ * 2: 最小刻度是 MIN_INTERRVAL 个小时(为了简化，假设在业务上，每 MIN_INTERRVAL 个小时为最小单位计算一次交通指数)，整数刻度范围是: [0, 48/MIN_INTERRVAL)
  * 3: 根据交通指数的等级，自定义每一个柱条的颜色(不从全局色盘获取)
  * 
  */
 const STACK_INTO_GROUP = '_stack-into-group_';
-const ROADS_MOCK = ['淮海路（洪山路口）', '惠黎路（建安路口）', '高山中（人民中路口）', '淮海中路（房星巷口）', '惠黎路（XX路口）', '高山中（XX路口）', '淮海中路（XX巷口）'];
-const MIN_INTERRVAL = 4;
+// const ROADS_MOCK = [
+//   '淮海路(洪山路口)', '惠黎路(建安路口)', '高山中(人民中路口)', '淮海中路(房星巷口)',
+//   '海四路(宝昌路路口)', '牡丹江路(宝山路口)', '海滨八村路(三宝路口)', '三营房路(儒林里路口)',
+//   '永清新村路(公兴路口)', '永清二村路(宝通路口)', '海江二村路(陆丰路口)', '海江新村路(象山里路口)',
+//   '吴淞新城路(班溪路口)', '吴淞三村路(吴淞路口)', '和丰路(淞滨路口)', '淞西路(同济路口)',
+//   '长征路(长征路口)', '一纺路(长征新路口)'
+// ];
+// const ROADS_MOCK = [
+//   '淮海路', '惠黎路', '高山中', '淮海中路',
+//   '海四路', '牡丹江路', '海滨八村路', '三营房路',
+//   '永清新村路', '永清二村路', '海江二村路', '海江新村路',
+//   '吴淞新城路', '吴淞三村路', '和丰路', '淞西路',
+//   '长征路', '一纺路'
+// ];
+const ROADS_MOCK = [
+  '祁连山路', '南大路', '环镇北路', '化工路', '制革路', '兆南路', '南陈路', '丰皓路', '丰翔路', '祁骆路', '古浪路'
+]
+
+const MIN_INTERRVAL = 8;
 const MAX_VALUE = 48;
 const RANGE_LENGTH = MAX_VALUE / MIN_INTERRVAL;
+
+const _HOURS = new Date().getHours();
+
 const TIME_RANGE = {
-  0: '昨日 15 时',
-  [RANGE_LENGTH]: '明日 15 时',
-  [RANGE_LENGTH >> 1]: '今日 15 时',
+  0: `昨日 ${_HOURS} 时`,
+  [RANGE_LENGTH >> 1]: `今日 ${_HOURS} 时`,
+  [RANGE_LENGTH]: `明日 ${_HOURS} 时`,
 };
 /**
  * 颜色库
@@ -42,6 +64,7 @@ const COLORS_STORE = ROADS_MOCK.map(() => {
   // X 方向产生 RANGE_LENGTH 个颜色
   return getSafeRandom(RANGE_LENGTH).map(i => getLevel(i * 10));
 });
+// 随机产生的颜色，也许不符合实际需要。需要产品定制数据，在用 getLevel 产生定制的颜色
 console.log('COLORS_STORE:', COLORS_STORE);
 // ++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -73,8 +96,8 @@ export default class TrafficIndex extends React.PureComponent {
               // },
               grid: {
                 show: false,
-                top: window.$parseMultiple(TITLE_FONT_SIZE + SUB_TITLE_FONT_SIZE),// 恰好流出标题字体大小的空间，和1倍字体大小的间距
-                right: window.$parseMultiple(91 + ICON_SIZE * 3),
+                top: (TITLE_FONT_SIZE * 2 + SUB_TITLE_FONT_SIZE) * 1,// 恰好流出标题字体大小的空间，和字体大小的间距
+                right: window.$parseMultiple(91) + ICON_SIZE * 3,
                 bottom: window.$parseMultiple(0),
                 left: window.$parseMultiple(91),
               },
@@ -107,7 +130,7 @@ export default class TrafficIndex extends React.PureComponent {
                   },
                   max: MAX_VALUE,
                   interval: MIN_INTERRVAL,
-                  offset: -TITLE_FONT_SIZE - SUB_TITLE_FONT_SIZE
+                  offset: TITLE_FONT_SIZE
                 }
               ],
               yAxis: [
@@ -167,6 +190,7 @@ export default class TrafficIndex extends React.PureComponent {
                     rotate: 0,
                     // 根据 index 定制 icon
                     formatter: function (value, index) {
+                      // 图标仓库
                       const data = [
                         ['{government|}', '{market|}',],// 第 1 条路
                         ['{government|}', '{market|}', '{scenic|}'],
@@ -175,8 +199,10 @@ export default class TrafficIndex extends React.PureComponent {
                         ['{government|}', '{station|}', '{hospital|}'],
                         ['{government|}', '{market|}', '{school|}'],
                         ['{government|}', '{station|}', '{hospital|}'],// 第 7 条路
+                        // ......等等
                       ]
-                      return data[index].join(' ');
+                      const fallbackIndex = getRandomValuesLimitedRange(1, 0, 7).shift() >>> 0;
+                      return (data[index] || data[fallbackIndex]).join(' ');
                     },
 
                     rich: {
@@ -256,6 +282,7 @@ export default class TrafficIndex extends React.PureComponent {
                   name: '某个时刻',
                   type: 'bar',
                   stack: STACK_INTO_GROUP,
+                  barMaxWidth: 10,
                   // 当前时间下，各个路口的交通指数
                   data: (new Array(ROADS_MOCK.length)).fill(0).map((currentRoad, indexRoad/* , arrayRoad */) => {
                     let preIndexTime;
@@ -280,7 +307,7 @@ export default class TrafficIndex extends React.PureComponent {
                     }
 
                     return {
-                      value: MIN_INTERRVAL,// value 可以设置成任何数值。这里使用的4代表了：假设每4个小时为最小单位计算一次交通指数
+                      value: MIN_INTERRVAL,// value 可以设置成任何数值。这里使用的 MIN_INTERRVAL 代表了：假设每 MIN_INTERRVAL 个小时为最小单位计算一次交通指数
                       itemStyle: {
                         // 如果不需要过度效果，直接使用  getLevel() 简单化用随机的颜色表达了交通指数
                         color: {
@@ -298,7 +325,7 @@ export default class TrafficIndex extends React.PureComponent {
                         barBorderRadius,
                         shadowColor: COLORS_STORE[indexRoad][indexTime],
                         shadowBlur: 10,
-                        opacity:0.8,
+                        opacity: 0.8,
                         shadowOffsetX: 2,
                         shadowOffsetY: 0,
                       }
@@ -310,23 +337,23 @@ export default class TrafficIndex extends React.PureComponent {
           />
         </div>
         <div className={Style['legend']}>
-            <ul className={Style['degree']}>
-              <li>通畅</li>
-              <li>基本通畅</li>
-              <li>缓行</li>
-              <li>较拥堵</li>
-              <li>拥堵</li>
-            </ul>
-            <ul className={Style['tip']}>
-              <li>拥堵高发路段</li>
-              <li>政府</li>
-              <li>学校</li>
-              <li>医院</li>
-              <li>车站</li>
-              <li>商场</li>
-              <li>景区</li>
-            </ul>
-          </div>
+          <ul className={Style['degree']}>
+            {
+              ['通畅', '缓行', '拥堵'].map((item, index) => {
+                return (<li key={item}><i style={{ backgroundColor: uniqueColors[index] }} />{item}</li>);
+              })
+            }
+          </ul>
+          <ul className={Style['tip']}>
+            <li>拥堵高发路段</li>
+            <li>政府</li>
+            <li>学校</li>
+            <li>医院</li>
+            <li>车站</li>
+            <li>商场</li>
+            <li>景区</li>
+          </ul>
+        </div>
       </div>
     );
   }
