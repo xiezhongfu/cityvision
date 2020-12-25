@@ -1,23 +1,43 @@
 import React from 'react';
+import Classnames from 'classnames';
 import Style from './style.module.scss';
 
-export default class BottomLegend extends React.PureComponent {
+export default class Statistic extends React.PureComponent {
+  isSelected = (selectedValue, index) => {
+    return selectedValue === index
+  }
+  selectedBackgroundImage = (selectedValue, index, iconSource) => {
+    const selected = this.isSelected(selectedValue, index);
+    if (selected) {
+      return Array.isArray(iconSource) ? iconSource[1] || iconSource[0] : iconSource;
+    }
+    return Array.isArray(iconSource) ? iconSource[0] : iconSource;
+  }
+
   render() {
+    const { dataSource, tipSource, value: selectedValue, onChange } = this.props;
+
     return (
       <ul className={Style['legend']}>
-        {/* TODO: 重大隐患等提示 */}
+        <li className={Style['tip']}>
+          <div className={Style['icon']} style={{ backgroundImage: `url(${tipSource.icon})` }}></div>
+          <div className={Style['name']}>{tipSource.name}</div>
+        </li>
+
         {
-          [
-            { name: '核心商务', value: 10, unit: '个', icon: require('./business.svg') },
-            { name: '综合消费', value: 10, unit: '个', icon: require('./consumption.svg') },
-            { name: '化工产业', value: 10, unit: '个', icon: require('./chemical.svg') },
-            { name: '装备制造', value: 10, unit: '个', icon: require('./equipment.svg') },
-            { name: '仓储物流', value: 10, unit: '个', icon: require('./express.svg') },
-          ].map((item, index) => {
+          dataSource.map((item, index) => {
             const { name, value, unit, icon, } = item;
             return (
-              <li key={index}>
-                <div className={Style['icon']} style={{ backgroundImage: `url(${icon})`}}></div>
+              <li
+                key={index}
+                onClick={() => {
+                  onChange(index);
+                }}
+                className={Classnames({ [Style['selected']]: this.isSelected(selectedValue, index) })}
+              >
+                <div className={Style['icon']}
+                  style={{ backgroundImage: `url(${this.selectedBackgroundImage(selectedValue, index, icon)})` }}
+                ></div>
                 <div className={Style['name']}>{name}</div>
                 <div className={Style['value']}>
                   <span>{value}</span>

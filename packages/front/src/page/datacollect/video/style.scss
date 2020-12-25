@@ -1,7 +1,7 @@
 @import "~video-react/styles/scss/video-react";
 
 .video-react.video-react-fluid, .video-react.video-react-16-9, .video-react.video-react-4-3{
-  height: $screen-height;
+  height: 100%;
 }
 
 .video-react{
@@ -9,6 +9,8 @@
   font-size: 60px * $multiple;
   .video-react-big-play-button{
     background-color: rgba(26, 190, 169, 1);
+    // 隐藏
+    opacity: 0;
 
     &.video-react-big-play-button-center{
       height: 1.5em;

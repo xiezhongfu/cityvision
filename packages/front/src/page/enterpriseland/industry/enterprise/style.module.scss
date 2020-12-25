@@ -13,6 +13,16 @@
 
   .echarts-pie{
     height: 50%;
+    display: flex;
+    justify-content: space-between;
+
+    & > *:nth-child(1){
+      width: 20%;
+    }
+
+    & > *:nth-child(2){
+      width: 75%;
+    }
   }
 
   .echarts-bar{

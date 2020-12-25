@@ -41,6 +41,7 @@
     @include box-shadow;
 
     li{
+      cursor: pointer;
       &:before{
         content:'';
       }

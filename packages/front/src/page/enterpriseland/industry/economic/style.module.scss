@@ -26,6 +26,21 @@
     }
     .item-title{
       font-size:34px * $multiple;
+      div:nth-child(1), div:nth-child(3){
+        margin: 0 auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-color: transparent;
+      }
+      div:nth-child(1){
+        width: 61px * $multiple;
+        height: 69px * $multiple;
+      }
+      div:nth-child(3){
+        width: 61px * 2 * $multiple;
+        height: 69px / 2 * $multiple;
+      }
     }
     .item-sub-title{
       font-size:24px * $multiple;

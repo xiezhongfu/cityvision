@@ -45,8 +45,11 @@ export default class Economic extends React.PureComponent {
                   show: false,
                 },
               },
+              label: {
+                formatter: '{c}'
+              },
               series: [{
-                data: [100, 200, 150, 250].map(value => {
+                data: [59, 21, 34, 73].map(value => {
                   return {
                     value,
                     itemStyle: {
@@ -70,7 +73,15 @@ export default class Economic extends React.PureComponent {
                   color: '#151A36',
                   shadowColor: 'rgba(0, 0, 0, 0.5)',
                   shadowBlur: 5
-                }
+                },
+                label: {
+                  normal: {
+                    show: true,
+                    position: 'top',
+                    color: '#fff',
+                    fontSize: window.$parseMultiple(34)
+                  }
+                },
               }]
             }}
           />

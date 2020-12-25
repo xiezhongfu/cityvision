@@ -1,11 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="62.25" height="62.25" viewBox="0 0 62.25 62.25">
+<svg id="组_2" data-name="组 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="154" height="155" viewBox="0 0 154 155">
   <defs>
     <style>
       .cls-1 {
+        fill: #ff3b66;
+        filter: url(#filter);
+      }
+
+      .cls-2 {
         fill: #151a37;
         fill-rule: evenodd;
       }
     </style>
+    <filter id="filter" x="0" y="0" width="154" height="155" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="4.472"/>
+      <feFlood result="flood" flood-color="#11152f" flood-opacity="0.71"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
   </defs>
-  <path id="形状_706_拷贝" data-name="形状 706 拷贝" class="cls-1" d="M2488.62,549.712h0a3.119,3.119,0,0,1,3.12,3.113h0a3.118,3.118,0,0,1-3.12,3.112h0a3.109,3.109,0,0,1-3.11-3.112h0A3.11,3.11,0,0,1,2488.62,549.712Zm-3.11-24.9c0-3.36,6.23-3.36,6.23,0v18.675c0,3.283-6.23,3.283-6.23,0V524.812Zm3.11-15.562a31.125,31.125,0,1,0,31.13,31.125,31.218,31.218,0,0,0-31.13-31.125h0Zm2.45,55.906a24.9,24.9,0,1,1,22.33-22.332A24.962,24.962,0,0,1,2491.07,565.156Z" transform="translate(-2457.5 -509.25)"/>
+  <circle id="椭圆_2_拷贝_6" data-name="椭圆 2 拷贝 6" class="cls-1" cx="76.625" cy="76.969" r="57.375"/>
+  <path id="形状_706" data-name="形状 706" class="cls-2" d="M2488.62,367.462h0a3.119,3.119,0,0,1,3.12,3.113h0a3.118,3.118,0,0,1-3.12,3.112h0a3.109,3.109,0,0,1-3.11-3.112h0A3.11,3.11,0,0,1,2488.62,367.462Zm-3.11-24.9c0-3.36,6.23-3.36,6.23,0v18.675c0,3.283-6.23,3.283-6.23,0V342.562ZM2488.62,327a31.125,31.125,0,1,0,31.13,31.125A31.218,31.218,0,0,0,2488.62,327h0Zm2.45,55.906a24.9,24.9,0,1,1,22.33-22.332A24.962,24.962,0,0,1,2491.07,382.906Z" transform="translate(-2412 -278)"/>
 </svg>

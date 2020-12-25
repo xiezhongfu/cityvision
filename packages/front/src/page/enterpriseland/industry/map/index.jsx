@@ -5,6 +5,8 @@ import Style from './style.module.scss';
 
 export default class Map extends React.PureComponent {
   render() {
+    const { legendSource = [], legendOnChange = () => { } } = this.props;
+
     return (
       <div className={Style['container']}>
         <div className={Style['map']}>
@@ -13,16 +15,12 @@ export default class Map extends React.PureComponent {
         </div>
         <ul className={Style['legend']}>
           {
-            [
-              '园区综合服务区',
-              '园区综合服务区',
-              '消费生活区',
-              '化工产业区',
-              '装备制造业产区',
-              '仓储物流区',
-              '高科技产业区'
-            ].map((item, index) => (
-              <li key={index}>{item}</li>
+            legendSource.map((item, index, array) => (
+              <li
+                key={index}
+                onClick={() => {
+                  legendOnChange(item, index, array);
+                }}>{item}</li>
             ))
           }
         </ul>
