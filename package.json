@@ -8,6 +8,6 @@
     "build": "lerna run --stream --scope front build"
   },
   "dependencies": {
-    "lerna": "^3.21.0"
+    "lerna": "^4.0.0"
   }
 }
