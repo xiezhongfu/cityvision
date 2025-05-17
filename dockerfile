@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:22.15.1-alpine3.21
 RUN npm install -g http-server --registry=https://registry.npm.taobao.org
 WORKDIR /app
 COPY . .
